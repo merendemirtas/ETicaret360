@@ -1,0 +1,86 @@
+@model ECommerceApp.Models.ViewModels.ProductCreateEditViewModel
+@{
+    ViewData["Title"] = "Yeni Ürün";
+    Layout = "_AdminLayout";
+    ViewData["Breadcrumb"] = "Yeni Ürün";
+}
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-4">
+        <form method="post" action="/admin/urunler/ekle" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="alert alert-danger"></div>
+            <div class="row g-4">
+                <div class="col-lg-8">
+                    <div class="mb-3">
+                        <label asp-for="Name" class="form-label fw-semibold">Ürün Adı</label>
+                        <input asp-for="Name" class="form-control" />
+                        <span asp-validation-for="Name" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="ShortDescription" class="form-label fw-semibold">Kısa Açıklama</label>
+                        <input asp-for="ShortDescription" class="form-control" />
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="Description" class="form-label fw-semibold">Açıklama</label>
+                        <textarea asp-for="Description" class="form-control" rows="6"></textarea>
+                        <span asp-validation-for="Description" class="text-danger small"></span>
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-4">
+                            <label asp-for="Price" class="form-label fw-semibold">Fiyat (₺)</label>
+                            <input asp-for="Price" class="form-control" type="number" step="0.01" />
+                            <span asp-validation-for="Price" class="text-danger small"></span>
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="DiscountedPrice" class="form-label fw-semibold">İndirimli Fiyat (₺)</label>
+                            <input asp-for="DiscountedPrice" class="form-control" type="number" step="0.01" />
+                        </div>
+                        <div class="col-md-4">
+                            <label asp-for="Stock" class="form-label fw-semibold">Stok</label>
+                            <input asp-for="Stock" class="form-control" type="number" />
+                            <span asp-validation-for="Stock" class="text-danger small"></span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="mb-3">
+                        <label asp-for="CategoryId" class="form-label fw-semibold">Kategori</label>
+                        <select asp-for="CategoryId" class="form-select"
+                                asp-items="@(new SelectList(Model.Categories, "Id", "Name"))">
+                            <option value="">Seçin...</option>
+                        </select>
+                        <span asp-validation-for="CategoryId" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label asp-for="BrandId" class="form-label fw-semibold">Marka</label>
+                        <select asp-for="BrandId" class="form-select"
+                                asp-items="@(new SelectList(Model.Brands, "Id", "Name"))">
+                            <option value="">Seçin...</option>
+                        </select>
+                        <span asp-validation-for="BrandId" class="text-danger small"></span>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label fw-semibold">Görseller</label>
+                        <input type="file" name="Images" class="form-control" multiple accept="image/*" />
+                        <small class="text-muted">Max 5MB, jpg/jpeg/png/webp</small>
+                    </div>
+                    <div class="mb-3">
+                        <div class="form-check form-switch">
+                            <input asp-for="IsActive" class="form-check-input" />
+                            <label asp-for="IsActive" class="form-check-label">Aktif</label>
+                        </div>
+                        <div class="form-check form-switch mt-2">
+                            <input asp-for="IsFeatured" class="form-check-input" />
+                            <label asp-for="IsFeatured" class="form-check-label">Öne Çıkan</label>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">
+                        <i class="bi bi-save me-2"></i>Kaydet
+                    </button>
+                    <a href="/admin/urunler" class="btn btn-outline-secondary w-100 mt-2">İptal</a>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>

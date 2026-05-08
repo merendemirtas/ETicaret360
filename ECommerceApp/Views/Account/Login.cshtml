@@ -1,0 +1,47 @@
+@model ECommerceApp.Models.ViewModels.LoginViewModel
+@{
+    ViewData["Title"] = "Giriş Yap";
+    Layout = "_Layout";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card border-0 shadow">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <i class="bi bi-person-circle text-primary fs-1"></i>
+                        <h2 class="fw-bold mt-2">Giriş Yap</h2>
+                    </div>
+                    <form asp-action="Login" method="post">
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label fw-semibold"></label>
+                            <input asp-for="Email" class="form-control" placeholder="ornek@email.com" />
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+                        <div class="mb-3">
+                            <div class="d-flex justify-content-between">
+                                <label asp-for="Password" class="form-label fw-semibold"></label>
+                                <a asp-action="ForgotPassword" class="small text-muted">Şifremi Unuttum</a>
+                            </div>
+                            <input asp-for="Password" type="password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger small"></span>
+                        </div>
+                        <div class="mb-3 form-check">
+                            <input asp-for="RememberMe" class="form-check-input" />
+                            <label asp-for="RememberMe" class="form-check-label"></label>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-lg">Giriş Yap</button>
+                    </form>
+                    <hr />
+                    <p class="text-center text-muted">
+                        Hesabınız yok mu?
+                        <a asp-action="Register" class="fw-semibold text-decoration-none">Kayıt Ol</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

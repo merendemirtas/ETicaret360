@@ -1,0 +1,61 @@
+@model ECommerceApp.Models.Entities.Coupon
+@{
+    ViewData["Title"] = "Yeni Kupon";
+    Layout = "_AdminLayout";
+}
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-4">
+        <h5 class="fw-bold mb-4">Yeni Kupon</h5>
+        <form asp-action="Create" method="post">
+            @Html.AntiForgeryToken()
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <label asp-for="Code" class="form-label fw-semibold">Kupon Kodu</label>
+                    <input asp-for="Code" class="form-control" placeholder="ORNEK10" />
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="DiscountType" class="form-label fw-semibold">İndirim Türü</label>
+                    <select asp-for="DiscountType" class="form-select">
+                        <option value="0">Yüzde (%)</option>
+                        <option value="1">Sabit Tutar (₺)</option>
+                    </select>
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="DiscountValue" class="form-label fw-semibold">İndirim Değeri</label>
+                    <input asp-for="DiscountValue" class="form-control" type="number" step="0.01" />
+                </div>
+                <div class="col-12">
+                    <label asp-for="Description" class="form-label fw-semibold">Açıklama</label>
+                    <input asp-for="Description" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="MinOrderAmount" class="form-label fw-semibold">Min. Sipariş Tutarı</label>
+                    <input asp-for="MinOrderAmount" class="form-control" type="number" step="0.01" />
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="MaxDiscountAmount" class="form-label fw-semibold">Max. İndirim Tutarı</label>
+                    <input asp-for="MaxDiscountAmount" class="form-control" type="number" step="0.01" />
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="UsageLimit" class="form-label fw-semibold">Kullanım Limiti</label>
+                    <input asp-for="UsageLimit" class="form-control" type="number" />
+                </div>
+                <div class="col-md-4">
+                    <label asp-for="ExpiresAt" class="form-label fw-semibold">Son Kullanım Tarihi</label>
+                    <input asp-for="ExpiresAt" class="form-control" type="datetime-local" />
+                </div>
+                <div class="col-md-4">
+                    <div class="form-check form-switch mt-4">
+                        <input asp-for="IsActive" class="form-check-input" />
+                        <label asp-for="IsActive" class="form-check-label">Aktif</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary"><i class="bi bi-save me-2"></i>Kaydet</button>
+                <a asp-action="Index" class="btn btn-outline-secondary ms-2">İptal</a>
+            </div>
+        </form>
+    </div>
+</div>

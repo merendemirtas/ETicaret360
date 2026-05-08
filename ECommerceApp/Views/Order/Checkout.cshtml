@@ -1,0 +1,231 @@
+@model ECommerceApp.Models.ViewModels.CheckoutViewModel
+@{
+    ViewData["Title"] = "Sipariş Tamamla";
+}
+
+<div class="container-fluid px-3 px-lg-4 py-4">
+    <div class="et-breadcrumb mb-4">
+        <a href="/">Ana Sayfa</a><span>/</span>
+        <a href="/sepet">Sepet</a><span>/</span>
+        <span style="color:var(--text)">Sipariş Tamamla</span>
+    </div>
+
+    <!-- Adım göstergesi -->
+    <div class="d-flex align-items-center gap-2 mb-4 justify-content-center">
+        <div style="display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:600;color:var(--text-muted)">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem">1</div>
+            Sepet
+        </div>
+        <div style="width:40px;height:2px;background:var(--border)"></div>
+        <div style="display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:600;color:var(--primary)">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;font-size:.8rem">2</div>
+            Teslimat
+        </div>
+        <div style="width:40px;height:2px;background:var(--border)"></div>
+        <div style="display:flex;align-items:center;gap:.5rem;font-size:.85rem;font-weight:600;color:var(--text-muted)">
+            <div style="width:28px;height:28px;border-radius:50%;background:var(--border);color:var(--text-muted);display:flex;align-items:center;justify-content:center;font-size:.8rem">3</div>
+            Onay
+        </div>
+    </div>
+
+    <form method="post" action="/sepet/odeme">
+        @Html.AntiForgeryToken()
+        <div class="row g-4">
+
+            <!-- Sol: Adres + Not -->
+            <div class="col-lg-7">
+
+                <!-- Kayıtlı adresler -->
+                @if (Model.Addresses.Any())
+                {
+                    <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem">
+                        <div style="font-weight:700;font-size:1rem;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem">
+                            <i class="bi bi-geo-alt-fill text-primary"></i>Teslimat Adresi
+                        </div>
+                        <div class="row g-3">
+                            @foreach (var addr in Model.Addresses)
+                            {
+                                <div class="col-md-6">
+                                    <label style="cursor:pointer;display:block">
+                                        <input type="radio" name="SelectedAddressId" value="@addr.Id"
+                                               @(addr.Id == Model.SelectedAddressId || addr.IsDefault ? "checked" : "")
+                                               style="display:none" class="addr-radio"
+                                               onchange="selectAddress(this)">
+                                        <div class="addr-card @(addr.Id == Model.SelectedAddressId || addr.IsDefault ? "selected" : "")"
+                                             style="border:2px solid @(addr.Id == Model.SelectedAddressId || addr.IsDefault ? "var(--primary)" : "var(--border)");
+                                                    border-radius:var(--radius-sm);padding:1rem;transition:border-color .2s;
+                                                    background:@(addr.Id == Model.SelectedAddressId || addr.IsDefault ? "var(--primary-muted)" : "transparent")">
+                                            <div style="font-weight:700;font-size:.9rem;margin-bottom:.4rem;color:var(--primary)">
+                                                <i class="bi bi-house me-1"></i>@addr.Title
+                                                @if (addr.IsDefault)
+                                                {
+                                                    <span style="font-size:.72rem;background:var(--primary);color:#fff;padding:.1rem .5rem;border-radius:100px;margin-left:.4rem">Varsayılan</span>
+                                                }
+                                            </div>
+                                            <div style="font-size:.88rem;font-weight:600">@addr.FullName</div>
+                                            <div style="font-size:.85rem;color:var(--text-muted);margin-top:.3rem">@addr.FullAddress</div>
+                                            <div style="font-size:.83rem;color:var(--text-muted)">@addr.District, @addr.City</div>
+                                            <div style="font-size:.83rem;color:var(--text-muted)">@addr.Phone</div>
+                                        </div>
+                                    </label>
+                                </div>
+                            }
+                        </div>
+                        <button type="button" class="et-btn et-btn-outline mt-3" style="height:38px;font-size:.85rem"
+                                onclick="toggleNewAddr()">
+                            <i class="bi bi-plus-circle me-1"></i>Yeni Adres Ekle
+                        </button>
+                    </div>
+                }
+
+                <!-- Yeni adres formu -->
+                <div id="newAddrPanel" style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;margin-bottom:1.25rem;@(Model.Addresses.Any() ? "display:none" : "")">
+                    <div style="font-weight:700;font-size:1rem;margin-bottom:1rem;display:flex;align-items:center;gap:.5rem">
+                        <i class="bi bi-plus-circle-fill text-primary"></i>
+                        @(Model.Addresses.Any() ? "Yeni Adres" : "Teslimat Adresi")
+                    </div>
+                    <div class="row g-3">
+                        <div class="col-md-6">
+                            <label class="et-label">Adres Başlığı</label>
+                            <input name="NewAddress.Title" class="et-input" placeholder="Ev, İş..." style="height:44px">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="et-label">Ad Soyad</label>
+                            <input name="NewAddress.FullName" class="et-input" placeholder="Ad Soyad" style="height:44px">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="et-label">Telefon</label>
+                            <input name="NewAddress.Phone" class="et-input" placeholder="05XX XXX XX XX" style="height:44px">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="et-label">Şehir</label>
+                            <input name="NewAddress.City" class="et-input" placeholder="İstanbul" style="height:44px">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="et-label">İlçe</label>
+                            <input name="NewAddress.District" class="et-input" placeholder="Kadıköy" style="height:44px">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="et-label">Posta Kodu</label>
+                            <input name="NewAddress.PostalCode" class="et-input" placeholder="34710" style="height:44px">
+                        </div>
+                        <div class="col-12">
+                            <label class="et-label">Açık Adres</label>
+                            <textarea name="NewAddress.FullAddress" rows="2"
+                                style="width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:.75rem 1rem;font-size:.95rem;outline:none;resize:none;transition:border-color .2s"
+                                placeholder="Mahalle, cadde, bina no, daire..."></textarea>
+                        </div>
+                        <div class="col-12">
+                            <label style="display:flex;align-items:center;gap:.5rem;cursor:pointer;font-size:.9rem">
+                                <input type="checkbox" name="NewAddress.IsDefault" value="true" style="accent-color:var(--primary);width:16px;height:16px">
+                                Varsayılan adresim olarak kaydet
+                            </label>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Not -->
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem">
+                    <div style="font-weight:700;font-size:1rem;margin-bottom:.75rem;display:flex;align-items:center;gap:.5rem">
+                        <i class="bi bi-chat-text text-primary"></i>Sipariş Notu <span style="font-size:.8rem;color:var(--text-muted);font-weight:400">(opsiyonel)</span>
+                    </div>
+                    <textarea name="Note" rows="3"
+                        style="width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:.75rem 1rem;font-size:.9rem;outline:none;resize:none;transition:border-color .2s"
+                        placeholder="Kapıya bırakın, zil çalmayın gibi notlar..."></textarea>
+                </div>
+            </div>
+
+            <!-- Sağ: Özet + Ödeme -->
+            <div class="col-lg-5">
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem;position:sticky;top:calc(var(--nav-height) + 1rem)">
+                    <div style="font-weight:700;font-size:1rem;margin-bottom:1.25rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)">
+                        <i class="bi bi-receipt me-2 text-primary"></i>Sipariş Özeti
+                    </div>
+
+                    <!-- Sipariş kalemleri özet -->
+                    <div style="max-height:200px;overflow-y:auto;margin-bottom:1rem">
+                        @* Sepet ürünleri burada gösterilir — CartService üzerinden çekilebilir *@
+                    </div>
+
+                    <div class="et-summary-row">
+                        <span>Ara Toplam</span><span>@Model.SubTotal.ToString("N0") ₺</span>
+                    </div>
+                    @if (Model.Discount > 0)
+                    {
+                        <div class="et-summary-row" style="color:#059669">
+                            <span>İndirim (@Model.CouponCode)</span>
+                            <span>−@Model.Discount.ToString("N0") ₺</span>
+                        </div>
+                    }
+                    <div class="et-summary-row">
+                        <span>Kargo</span>
+                        <span>
+                            @if (Model.Shipping == 0)
+                            {
+                                <span style="color:#059669;font-weight:600">Ücretsiz</span>
+                            }
+                            else
+                            {
+                                @(Model.Shipping.ToString("N0") + " ₺")
+                            }
+                        </span>
+                    </div>
+                    <div class="et-summary-row total">
+                        <span>Toplam</span><span>@Model.Total.ToString("N0") ₺</span>
+                    </div>
+
+                    <!-- Ödeme yöntemi — prototip -->
+                    <div style="background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius-sm);padding:1rem;margin-top:1rem">
+                        <div style="font-size:.85rem;font-weight:700;margin-bottom:.6rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:.05em">
+                            Ödeme Yöntemi
+                        </div>
+                        <input type="hidden" name="PaymentProvider" value="COD">
+                        <div style="display:flex;align-items:center;gap:.75rem;font-size:.9rem">
+                            <div style="width:36px;height:36px;background:#d1fae5;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                                <i class="bi bi-cash-coin" style="color:#059669"></i>
+                            </div>
+                            <div>
+                                <div style="font-weight:600">Kapıda Ödeme</div>
+                                <div style="font-size:.78rem;color:var(--text-muted)">Teslimat anında ödeme yapın</div>
+                            </div>
+                            <i class="bi bi-check-circle-fill ms-auto" style="color:#059669"></i>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="et-btn et-btn-primary w-100 justify-content-center mt-3"
+                            style="height:50px;font-size:1rem">
+                        <i class="bi bi-bag-check me-2"></i>Siparişi Tamamla
+                    </button>
+
+                    <div style="text-align:center;margin-top:.75rem;font-size:.8rem;color:var(--text-muted)">
+                        <i class="bi bi-shield-check me-1 text-success"></i>
+                        Siparişiniz güvende. Onaylandıktan sonra hazırlanacak.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+<script>
+function toggleNewAddr() {
+    var p = document.getElementById('newAddrPanel');
+    p.style.display = p.style.display === 'none' ? 'block' : 'none';
+    // Yeni adres açıkken radioleri temizle
+    if (p.style.display === 'block') {
+        document.querySelectorAll('input[name="SelectedAddressId"]').forEach(r => r.checked = false);
+    }
+}
+function selectAddress(radio) {
+    document.querySelectorAll('.addr-card').forEach(c => {
+        c.style.borderColor = 'var(--border)';
+        c.style.background  = 'transparent';
+    });
+    var card = radio.nextElementSibling;
+    card.style.borderColor = 'var(--primary)';
+    card.style.background  = 'var(--primary-muted)';
+    document.getElementById('newAddrPanel').style.display = 'none';
+}
+</script>
+}

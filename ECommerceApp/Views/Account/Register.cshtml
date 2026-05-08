@@ -1,0 +1,51 @@
+@model ECommerceApp.Models.ViewModels.RegisterViewModel
+@{
+    ViewData["Title"] = "Kayıt Ol";
+    Layout = "_Layout";
+}
+
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-5">
+            <div class="card border-0 shadow">
+                <div class="card-body p-5">
+                    <div class="text-center mb-4">
+                        <i class="bi bi-person-plus-fill text-primary fs-1"></i>
+                        <h2 class="fw-bold mt-2">Kayıt Ol</h2>
+                    </div>
+                    <form asp-action="Register" method="post">
+                        @Html.AntiForgeryToken()
+                        <div asp-validation-summary="ModelOnly" class="alert alert-danger" role="alert"></div>
+                        <div class="mb-3">
+                            <label asp-for="FullName" class="form-label fw-semibold"></label>
+                            <input asp-for="FullName" class="form-control" placeholder="Adınız Soyadınız" />
+                            <span asp-validation-for="FullName" class="text-danger small"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label fw-semibold"></label>
+                            <input asp-for="Email" class="form-control" placeholder="ornek@email.com" />
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Password" class="form-label fw-semibold"></label>
+                            <input asp-for="Password" type="password" class="form-control" />
+                            <span asp-validation-for="Password" class="text-danger small"></span>
+                            <small class="text-muted">En az 8 karakter, büyük/küçük harf ve rakam içermeli</small>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="ConfirmPassword" class="form-label fw-semibold"></label>
+                            <input asp-for="ConfirmPassword" type="password" class="form-control" />
+                            <span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 btn-lg">Kayıt Ol</button>
+                    </form>
+                    <hr />
+                    <p class="text-center text-muted">
+                        Zaten hesabınız var mı?
+                        <a asp-action="Login" class="fw-semibold text-decoration-none">Giriş Yap</a>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

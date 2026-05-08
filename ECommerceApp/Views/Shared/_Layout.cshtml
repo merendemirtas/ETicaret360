@@ -1,0 +1,250 @@
+@using System.Security.Claims
+@using ECommerceApp.Services
+@inject ICategoryService CategoryService
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@(ViewData["Title"] != null ? ViewData["Title"] + " – " : "")ETicaret365</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body>
+
+@{
+    var navCategories = await CategoryService.GetMainCategoriesAsync();
+}
+
+<!-- ══ NAVBAR ══ -->
+<nav class="et-navbar">
+    <div class="container-fluid px-4">
+        <a class="et-logo me-3" href="/">ETicaret<span style="color:var(--primary-light)">365</span></a>
+
+        <div class="dropdown d-none d-lg-block me-1">
+            <button class="et-nav-link border-0 bg-transparent dropdown-toggle" data-bs-toggle="dropdown">
+                <i class="bi bi-grid-3x3-gap me-1"></i>Kategoriler
+            </button>
+            <ul class="dropdown-menu shadow border-0 rounded-3 p-2" style="min-width:200px">
+                @foreach (var c in navCategories)
+                {
+                    <li><a class="dropdown-item rounded-2 py-2" href="/urunler?kategori=@c.Slug">
+                        <i class="bi bi-tag me-2 text-primary"></i>@c.Name
+                    </a></li>
+                }
+            </ul>
+        </div>
+
+        <a class="et-nav-link d-none d-lg-block" href="/">Ana Sayfa</a>
+        <a class="et-nav-link d-none d-lg-block" href="/urunler">Ürünler</a>
+
+        <div class="et-search-bar mx-auto">
+            <i class="bi bi-search search-icon"></i>
+            <input type="text" id="globalSearch" placeholder="Ürün, kategori, marka ara..." autocomplete="off">
+        </div>
+
+        <div class="d-flex align-items-center gap-2 ms-2">
+            @if (User.Identity?.IsAuthenticated == true)
+            {
+                <a href="/wishlist" class="et-icon-btn d-none d-md-flex" title="Favorilerim">
+                    <i class="bi bi-heart"></i>
+                </a>
+                <a href="/sepet" class="et-icon-btn" title="Sepetim">
+                    <i class="bi bi-bag"></i>
+                    <span class="badge" id="cartBadge" style="display:none">0</span>
+                </a>
+                <div class="dropdown">
+                    <button class="et-icon-btn dropdown-toggle" data-bs-toggle="dropdown"
+                        style="width:auto;padding:0 .75rem;border-radius:100px;gap:.4rem;font-size:.85rem;font-weight:600">
+                        <i class="bi bi-person-circle"></i>
+                        <span class="d-none d-md-inline">@(User.Identity.Name?.Split('@')[0])</span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end shadow border-0 rounded-3 p-2" style="min-width:200px">
+                        <li><a class="dropdown-item rounded-2 py-2" href="/account/profile"><i class="bi bi-person me-2"></i>Profilim</a></li>
+                        <li><a class="dropdown-item rounded-2 py-2" href="/siparis/siparislerim"><i class="bi bi-box-seam me-2"></i>Siparişlerim</a></li>
+                        @if (User.IsInRole("Admin"))
+                        {
+                            <li><hr class="dropdown-divider my-1"></li>
+                            <li><a class="dropdown-item rounded-2 py-2 text-primary fw-semibold" href="/admin">
+                                <i class="bi bi-speedometer2 me-2"></i>Admin Panel
+                            </a></li>
+                        }
+                        <li><hr class="dropdown-divider my-1"></li>
+                        <li>
+                            <form method="post" action="/account/logout" class="m-0">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="dropdown-item rounded-2 py-2 text-danger border-0 bg-transparent w-100 text-start">
+                                    <i class="bi bi-box-arrow-right me-2"></i>Çıkış Yap
+                                </button>
+                            </form>
+                        </li>
+                    </ul>
+                </div>
+            }
+            else
+            {
+                <a href="/account/login" class="et-btn et-btn-outline d-none d-md-flex" style="height:40px">Giriş Yap</a>
+                <a href="/account/register" class="et-btn et-btn-primary" style="height:40px">Kayıt Ol</a>
+            }
+            <button class="et-icon-btn d-lg-none border-0 bg-transparent" id="mobileMenuBtn">
+                <i class="bi bi-list fs-5"></i>
+            </button>
+        </div>
+    </div>
+</nav>
+
+<!-- Mobile Drawer -->
+<div id="mobileDrawer" style="display:none;position:fixed;inset:0;z-index:1050">
+    <div onclick="closeMobileMenu()" style="position:absolute;inset:0;background:rgba(0,0,0,.5)"></div>
+    <div style="position:absolute;left:0;top:0;bottom:0;width:300px;background:#fff;z-index:1;display:flex;flex-direction:column;overflow-y:auto;animation:slideInLeft .25s ease">
+        <div style="padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center">
+            <span class="et-logo">ETicaret<span style="color:var(--primary-light)">365</span></span>
+            <button class="et-icon-btn border-0 bg-transparent" onclick="closeMobileMenu()"><i class="bi bi-x-lg"></i></button>
+        </div>
+        <nav style="padding:1rem;flex:1">
+            <a class="et-nav-link d-block mb-1 py-3" href="/"><i class="bi bi-house me-2"></i>Ana Sayfa</a>
+            <a class="et-nav-link d-block mb-1 py-3" href="/urunler"><i class="bi bi-grid me-2"></i>Tüm Ürünler</a>
+            <div style="font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--text-muted);padding:.5rem .8rem;margin-top:.5rem">Kategoriler</div>
+            @foreach (var c in navCategories)
+            {
+                <a class="et-nav-link d-block mb-1 py-3" href="/urunler?kategori=@c.Slug">
+                    <i class="bi bi-tag me-2"></i>@c.Name
+                </a>
+            }
+        </nav>
+        @if (User.Identity?.IsAuthenticated != true)
+        {
+            <div style="padding:1rem;border-top:1px solid var(--border)">
+                <a href="/account/login" class="et-btn et-btn-outline w-100 justify-content-center mb-2">Giriş Yap</a>
+                <a href="/account/register" class="et-btn et-btn-primary w-100 justify-content-center">Kayıt Ol</a>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- Alerts -->
+@if (TempData["Success"] is string successMsg)
+{
+    <div id="topAlert" style="position:fixed;top:80px;right:1rem;z-index:999;min-width:300px;animation:fadeUp .3s ease">
+        <div class="et-alert et-alert-success d-flex align-items-center gap-2 shadow">
+            <i class="bi bi-check-circle-fill fs-5"></i>
+            <span>@successMsg</span>
+            <button type="button" class="btn-close ms-auto btn-sm" onclick="this.closest('#topAlert').remove()"></button>
+        </div>
+    </div>
+}
+@if (TempData["Error"] is string errMsg)
+{
+    <div id="topAlert" style="position:fixed;top:80px;right:1rem;z-index:999;min-width:300px;animation:fadeUp .3s ease">
+        <div class="et-alert et-alert-danger d-flex align-items-center gap-2 shadow">
+            <i class="bi bi-exclamation-circle-fill fs-5"></i>
+            <span>@errMsg</span>
+            <button type="button" class="btn-close ms-auto btn-sm" onclick="this.closest('#topAlert').remove()"></button>
+        </div>
+    </div>
+}
+
+<main>
+    @RenderBody()
+</main>
+
+<!-- FOOTER -->
+<footer class="et-footer">
+    <div class="container">
+        <div class="row g-4 mb-4">
+            <div class="col-lg-4">
+                <div class="et-footer-logo">ETicaret<span style="color:var(--primary-light)">365</span></div>
+                <p style="font-size:.9rem;line-height:1.7;max-width:280px;margin-top:.5rem">
+                    Türkiye'nin güvenilir online alışveriş platformu. Kalite, hız ve güven bir arada.
+                </p>
+                <div class="d-flex gap-2 mt-3">
+                    <a href="#" class="et-icon-btn" style="background:#1e293b;border-color:#334155;color:#94a3b8"><i class="bi bi-instagram"></i></a>
+                    <a href="#" class="et-icon-btn" style="background:#1e293b;border-color:#334155;color:#94a3b8"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#" class="et-icon-btn" style="background:#1e293b;border-color:#334155;color:#94a3b8"><i class="bi bi-facebook"></i></a>
+                    <a href="#" class="et-icon-btn" style="background:#1e293b;border-color:#334155;color:#94a3b8"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h6>Kategoriler</h6>
+                @foreach (var c in navCategories.Take(6))
+                {
+                    <a href="/urunler?kategori=@c.Slug">@c.Name</a>
+                }
+            </div>
+            <div class="col-6 col-lg-2">
+                <h6>Hesabım</h6>
+                <a href="/account/profile">Profilim</a>
+                <a href="/siparis/siparislerim">Siparişlerim</a>
+                <a href="/wishlist">Favorilerim</a>
+                <a href="/sepet">Sepetim</a>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h6>Yardım</h6>
+                <a href="#">SSS</a>
+                <a href="#">İade Politikası</a>
+                <a href="#">Kargo Bilgisi</a>
+                <a href="#">İletişim</a>
+            </div>
+            <div class="col-6 col-lg-2">
+                <h6>İletişim</h6>
+                <a href="mailto:info@eticaret365.com"><i class="bi bi-envelope me-1"></i>info@eticaret365.com</a>
+                <a href="tel:08503653636"><i class="bi bi-telephone me-1"></i>0850 365 36 36</a>
+                <span style="font-size:.9rem;display:block;margin-bottom:.5rem"><i class="bi bi-geo-alt me-1"></i>İstanbul, Türkiye</span>
+            </div>
+        </div>
+        <div class="et-footer-bottom d-flex flex-wrap justify-content-between align-items-center gap-2">
+            <span>© 2024 ETicaret365. Tüm hakları saklıdır.</span>
+            <div class="d-flex gap-3">
+                <a href="#">Gizlilik Politikası</a>
+                <a href="#">Kullanım Koşulları</a>
+                <a href="#">KVKK</a>
+            </div>
+        </div>
+    </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script>
+    document.getElementById('mobileMenuBtn')?.addEventListener('click', () => {
+        document.getElementById('mobileDrawer').style.display = 'block';
+        document.body.style.overflow = 'hidden';
+    });
+    function closeMobileMenu() {
+        document.getElementById('mobileDrawer').style.display = 'none';
+        document.body.style.overflow = '';
+    }
+
+    toastr.options = { positionClass:'toast-bottom-right', timeOut:3500, progressBar:true, closeButton:true };
+
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <text>
+        $.get('/sepet/count', function(d){ if(d.count>0){ $('#cartBadge').text(d.count).show(); } });
+        </text>
+    }
+
+    let st;
+    $('#globalSearch').on('input', function(){
+        clearTimeout(st);
+        const q = $(this).val().trim();
+        if(q.length > 1) st = setTimeout(() => window.location.href = '/urunler?ara=' + encodeURIComponent(q), 700);
+    }).on('keypress', function(e){
+        if(e.key==='Enter') window.location.href = '/urunler?ara=' + encodeURIComponent($(this).val());
+    });
+
+    setTimeout(() => document.getElementById('topAlert')?.remove(), 5000);
+</script>
+<style>
+@@keyframes slideInLeft { from { transform:translateX(-100%); } to { transform:translateX(0); } }
+</style>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

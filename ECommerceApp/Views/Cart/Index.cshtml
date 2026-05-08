@@ -1,0 +1,171 @@
+@model ECommerceApp.Models.ViewModels.CartViewModel
+@{
+    ViewData["Title"] = "Sepetim";
+}
+
+<div class="container my-4">
+    <h1 class="fw-bold mb-4">Sepetim</h1>
+
+    @if (!Model.Items.Any())
+    {
+        <div class="text-center py-5">
+            <i class="bi bi-cart3 display-1 text-muted"></i>
+            <h3 class="mt-3 text-muted">Sepetiniz boş</h3>
+            <a asp-controller="Product" asp-action="Index" class="btn btn-primary mt-3">Alışverişe Başla</a>
+        </div>
+    }
+    else
+    {
+        <div class="row g-4">
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-0">
+                        <table class="table mb-0">
+                            <thead class="table-light">
+                                <tr>
+                                    <th>Ürün</th>
+                                    <th class="text-center">Fiyat</th>
+                                    <th class="text-center">Adet</th>
+                                    <th class="text-center">Toplam</th>
+                                    <th></th>
+                                </tr>
+                            </thead>
+                            <tbody id="cartBody">
+                                @foreach (var item in Model.Items)
+                                {
+                                    <tr id="cart-row-@item.Id">
+                                        <td>
+                                            <div class="d-flex align-items-center gap-3">
+                                                <img src="@item.ImageUrl" style="width:70px;height:70px;object-fit:cover;border-radius:8px"
+                                                     onerror="this.src='/images/no-image.png'" />
+                                                <div>
+                                                    <a asp-controller="Product" asp-action="Detail" asp-route-slug="@item.ProductSlug"
+                                                       class="fw-semibold text-dark text-decoration-none">@item.ProductName</a>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="text-center align-middle">@item.UnitPrice.ToString("C2")</td>
+                                        <td class="text-center align-middle">
+                                            <div class="input-group input-group-sm" style="width:110px;margin:auto">
+                                                <button class="btn btn-outline-secondary" type="button"
+                                                        onclick="updateQty(@item.Id, @(item.Quantity - 1))">-</button>
+                                                <input type="number" class="form-control text-center" value="@item.Quantity"
+                                                       min="1" max="@item.Stock" readonly />
+                                                <button class="btn btn-outline-secondary" type="button"
+                                                        onclick="updateQty(@item.Id, @(item.Quantity + 1))">+</button>
+                                            </div>
+                                        </td>
+                                        <td class="text-center align-middle fw-semibold cart-item-total" data-item-id="@item.Id">
+                                            @item.TotalPrice.ToString("C2")
+                                        </td>
+                                        <td class="text-center align-middle">
+                                            <button class="btn btn-sm btn-outline-danger" onclick="removeFromCart(@item.Id)">
+                                                <i class="bi bi-trash"></i>
+                                            </button>
+                                        </td>
+                                    </tr>
+                                }
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="mt-3">
+                    <a asp-controller="Product" asp-action="Index" class="btn btn-outline-secondary">
+                        <i class="bi bi-arrow-left me-1"></i>Alışverişe Devam Et
+                    </a>
+                </div>
+            </div>
+
+            <div class="col-lg-4">
+                <!-- Kupon -->
+                <div class="card border-0 shadow-sm mb-3">
+                    <div class="card-body">
+                        <h6 class="fw-bold">Kupon Kodu</h6>
+                        @if (Model.AppliedCouponCode != null)
+                        {
+                            <div class="d-flex align-items-center justify-content-between">
+                                <span class="badge bg-success">@Model.AppliedCouponCode uygulandı</span>
+                                <button class="btn btn-sm btn-outline-danger" onclick="removeCoupon()">Kaldır</button>
+                            </div>
+                        }
+                        else
+                        {
+                            <div class="input-group">
+                                <input type="text" id="couponCode" class="form-control" placeholder="Kupon kodunuz" />
+                                <button class="btn btn-outline-primary" onclick="applyCoupon()">Uygula</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+
+                <!-- Özet -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="fw-bold mb-3">Sipariş Özeti</h5>
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Ara Toplam</span>
+                            <span id="subtotal">@Model.SubTotal.ToString("C2")</span>
+                        </div>
+                        @if (Model.Discount > 0)
+                        {
+                            <div class="d-flex justify-content-between mb-2 text-success">
+                                <span>İndirim</span>
+                                <span>-@Model.Discount.ToString("C2")</span>
+                            </div>
+                        }
+                        <div class="d-flex justify-content-between mb-2">
+                            <span>Kargo</span>
+                            <span id="shipping">
+                                @if (Model.Shipping == 0)
+                                {
+                                    <span class="text-success fw-semibold">Ücretsiz</span>
+                                }
+                                else
+                                {
+                                    @Model.Shipping.ToString("C2")
+                                }
+                            </span>
+                        </div>
+                        <hr />
+                        <div class="d-flex justify-content-between fw-bold fs-5">
+                            <span>Toplam</span>
+                            <span id="total">@Model.Total.ToString("C2")</span>
+                        </div>
+                        <a href="/sepet/odeme" class="et-btn et-btn-primary w-100 justify-content-center mt-3" style="height:50px;font-size:1rem">
+                            <i class="bi bi-bag-check me-2"></i>Siparişi Tamamla
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+@section Scripts {
+<script>
+function updateQty(cartItemId, qty) {
+    if (qty < 1) { removeFromCart(cartItemId); return; }
+    $.post('/Cart/UpdateQuantity', { cartItemId, quantity: qty }, function(res) {
+        if (res.success) location.reload();
+    });
+}
+function removeFromCart(cartItemId) {
+    $.post('/Cart/Remove', { cartItemId }, function(res) {
+        if (res.success) { toastr.success(res.message); location.reload(); }
+    });
+}
+function applyCoupon() {
+    var code = $('#couponCode').val();
+    var subtotal = @Model.SubTotal;
+    $.post('/Cart/ApplyCoupon', { couponCode: code, orderAmount: subtotal }, function(res) {
+        if (res.success) { toastr.success(res.message); location.reload(); }
+        else toastr.error(res.message);
+    });
+}
+function removeCoupon() {
+    $.post('/Cart/RemoveCoupon', {}, function(res) {
+        if (res.success) { toastr.success(res.message); location.reload(); }
+    });
+}
+</script>
+}

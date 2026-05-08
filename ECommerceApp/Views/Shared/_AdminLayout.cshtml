@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@(ViewData["Title"] != null ? ViewData["Title"] + " | " : "")Admin – ETicaret365</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    @await RenderSectionAsync("Styles", required: false)
+</head>
+<body style="background:#f1f5f9;margin:0">
+
+<!-- ══ SIDEBAR ══ -->
+<aside class="et-sidebar" id="adminSidebar">
+    <div class="et-sidebar-logo">
+        ETicaret<span>365</span>
+        <small>Admin Paneli</small>
+    </div>
+    <nav>
+        <div class="et-sidebar-section">Genel</div>
+        <a class="et-sidebar-link @(Context.Request.Path.StartsWithSegments("/admin") && Context.Request.Path == "/admin" ? "active" : "")" href="/admin">
+            <i class="bi bi-speedometer2"></i>Dashboard
+        </a>
+
+        <div class="et-sidebar-section">Katalog</div>
+        <a class="et-sidebar-link @(Context.Request.Path.StartsWithSegments("/admin/urunler") ? "active" : "")" href="/admin/urunler">
+            <i class="bi bi-box-seam"></i>Ürünler
+        </a>
+        <a class="et-sidebar-link @(Context.Request.Path.StartsWithSegments("/admin/kategoriler") ? "active" : "")" href="/admin/kategoriler">
+            <i class="bi bi-tags"></i>Kategoriler
+        </a>
+        <a class="et-sidebar-link @(Context.Request.Path.StartsWithSegments("/admin/markalar") ? "active" : "")" href="/admin/markalar">
+            <i class="bi bi-award"></i>Markalar
+        </a>
+
+        <div class="et-sidebar-section">Satış</div>
+        <a class="et-sidebar-link @(Context.Request.Path.StartsWithSegments("/admin/siparisler") ? "active" : "")" href="/admin/siparisler">
+            <i class="bi bi-receipt"></i>Siparişler
+        </a>
+        <a class="et-sidebar-link @(Context.Request.Path.StartsWithSegments("/admin/kuponlar") ? "active" : "")" href="/admin/kuponlar">
+            <i class="bi bi-ticket-perforated"></i>Kuponlar
+        </a>
+
+        <div class="et-sidebar-section">İçerik</div>
+        <a class="et-sidebar-link @(Context.Request.Path.StartsWithSegments("/admin/yorumlar") ? "active" : "")" href="/admin/yorumlar">
+            <i class="bi bi-chat-square-text"></i>Yorumlar
+        </a>
+    </nav>
+    <div style="padding:1rem 1.25rem;border-top:1px solid #1e293b;margin-top:auto">
+        <a href="/" class="et-sidebar-link" style="border-left:none">
+            <i class="bi bi-arrow-left-circle"></i>Siteye Dön
+        </a>
+        <form method="post" action="/account/logout" class="m-0">
+            @Html.AntiForgeryToken()
+            <button type="submit" class="et-sidebar-link w-100 text-start border-0 bg-transparent" style="color:#ef4444;border-left:none">
+                <i class="bi bi-box-arrow-right"></i>Çıkış Yap
+            </button>
+        </form>
+    </div>
+</aside>
+
+<!-- ══ MAIN ══ -->
+<div class="et-admin-main">
+    <!-- Top Bar -->
+    <div class="et-admin-topbar">
+        <div class="d-flex align-items-center gap-3">
+            <button class="et-icon-btn border-0 bg-transparent d-lg-none" id="sidebarToggle">
+                <i class="bi bi-list fs-5"></i>
+            </button>
+            <nav aria-label="breadcrumb" class="d-none d-md-block">
+                <ol class="breadcrumb mb-0" style="font-size:.85rem">
+                    <li class="breadcrumb-item"><a href="/admin" class="text-decoration-none text-muted">Admin</a></li>
+                    @if (ViewData["Title"] is string title)
+                    {
+                        <li class="breadcrumb-item active">@title</li>
+                    }
+                </ol>
+            </nav>
+        </div>
+        <div class="d-flex align-items-center gap-2">
+            <span style="font-size:.85rem;color:var(--text-muted)" class="d-none d-md-block">
+                <i class="bi bi-person-circle me-1"></i>@User.Identity?.Name?.Split('@')[0]
+            </span>
+        </div>
+    </div>
+
+    <!-- Alerts -->
+    @if (TempData["Success"] is string s)
+    {
+        <div class="mx-3 mt-3">
+            <div class="et-alert et-alert-success d-flex align-items-center gap-2">
+                <i class="bi bi-check-circle-fill"></i>@s
+                <button type="button" class="btn-close ms-auto btn-sm" onclick="this.closest('div.et-alert').parentElement.remove()"></button>
+            </div>
+        </div>
+    }
+    @if (TempData["Error"] is string er)
+    {
+        <div class="mx-3 mt-3">
+            <div class="et-alert et-alert-danger d-flex align-items-center gap-2">
+                <i class="bi bi-exclamation-circle-fill"></i>@er
+                <button type="button" class="btn-close ms-auto btn-sm" onclick="this.closest('div.et-alert').parentElement.remove()"></button>
+            </div>
+        </div>
+    }
+
+    <div class="et-admin-content">
+        @RenderBody()
+    </div>
+</div>
+
+<!-- Overlay for mobile sidebar -->
+<div id="sidebarOverlay" onclick="closeSidebar()" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:99"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.7.1/dist/jquery.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+<script>
+    document.getElementById('sidebarToggle')?.addEventListener('click', () => {
+        document.getElementById('adminSidebar').classList.toggle('open');
+        document.getElementById('sidebarOverlay').style.display = 'block';
+    });
+    function closeSidebar() {
+        document.getElementById('adminSidebar').classList.remove('open');
+        document.getElementById('sidebarOverlay').style.display = 'none';
+    }
+    toastr.options = { positionClass:'toast-bottom-right', timeOut:3500, progressBar:true, closeButton:true };
+</script>
+@await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

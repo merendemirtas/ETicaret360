@@ -1,0 +1,43 @@
+@model IEnumerable<ECommerceApp.Models.Entities.Category>
+@{
+    ViewData["Title"] = "Kategori Yönetimi";
+    Layout = "_AdminLayout";
+    ViewData["Breadcrumb"] = "Kategoriler";
+}
+
+<div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="fw-bold mb-0">Kategoriler</h4>
+    <a asp-action="Create" class="btn btn-primary"><i class="bi bi-plus-lg me-2"></i>Yeni Kategori</a>
+</div>
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-0">
+        <table class="table table-hover mb-0">
+            <thead class="table-light">
+                <tr><th>Ad</th><th>Slug</th><th>Üst Kategori</th><th>Sıra</th><th>Durum</th><th>İşlem</th></tr>
+            </thead>
+            <tbody>
+                @foreach (var cat in Model.OrderBy(c => c.DisplayOrder))
+                {
+                    <tr>
+                        <td class="fw-semibold">@(cat.ParentId.HasValue ? "└ " : "")@cat.Name</td>
+                        <td class="text-muted small">@cat.Slug</td>
+                        <td class="small">@cat.Parent?.Name</td>
+                        <td>@cat.DisplayOrder</td>
+                        <td><span class="badge @(cat.IsActive ? "bg-success" : "bg-secondary")">@(cat.IsActive ? "Aktif" : "Pasif")</span></td>
+                        <td>
+                            <a asp-action="Edit" asp-route-id="@cat.Id" class="btn btn-sm btn-outline-primary me-1">
+                                <i class="bi bi-pencil"></i>
+                            </a>
+                            <form asp-action="Delete" asp-route-id="@cat.Id" method="post" class="d-inline"
+                                  onsubmit="return confirm('Bu kategoriyi pasif yapmak istiyor musunuz?')">
+                                @Html.AntiForgeryToken()
+                                <button type="submit" class="btn btn-sm btn-outline-danger"><i class="bi bi-archive"></i></button>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

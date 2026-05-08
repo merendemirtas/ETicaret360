@@ -1,0 +1,162 @@
+@model ECommerceApp.Models.ViewModels.ProductListViewModel
+@{
+    ViewData["Title"] = "Ürünler";
+}
+
+<div class="container my-4">
+    <div class="row g-4">
+        <!-- Filtreler -->
+        <div class="col-lg-3">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body">
+                    <h5 class="fw-bold mb-3">Filtrele</h5>
+                    <form method="get" id="filterForm">
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold small">Kategori</label>
+                            @foreach (var cat in Model.Categories)
+                            {
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="kategori"
+                                           value="@cat.Id" id="cat@cat.Id"
+                                           @(Model.CategoryId == cat.Id ? "checked" : "")
+                                           onchange="this.form.submit()" />
+                                    <label class="form-check-label small" for="cat@cat.Id">@cat.Name</label>
+                                </div>
+                            }
+                            @if (Model.CategoryId.HasValue)
+                            {
+                                <a href="?" class="small text-muted">Temizle</a>
+                            }
+                        </div>
+                        <hr />
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold small">Marka</label>
+                            @foreach (var brand in Model.Brands)
+                            {
+                                <div class="form-check">
+                                    <input class="form-check-input" type="radio" name="marka"
+                                           value="@brand.Id" id="brand@brand.Id"
+                                           @(Model.BrandId == brand.Id ? "checked" : "")
+                                           onchange="this.form.submit()" />
+                                    <label class="form-check-label small" for="brand@brand.Id">@brand.Name</label>
+                                </div>
+                            }
+                        </div>
+                        <hr />
+                        <div class="mb-3">
+                            <label class="form-label fw-semibold small">Fiyat Aralığı</label>
+                            <div class="row g-2">
+                                <div class="col-6">
+                                    <input type="number" name="minFiyat" class="form-control form-control-sm"
+                                           placeholder="Min" value="@Model.MinPrice" />
+                                </div>
+                                <div class="col-6">
+                                    <input type="number" name="maxFiyat" class="form-control form-control-sm"
+                                           placeholder="Max" value="@Model.MaxPrice" />
+                                </div>
+                            </div>
+                        </div>
+                        <input type="hidden" name="kategori" value="@Model.CategoryId" />
+                        <input type="hidden" name="marka" value="@Model.BrandId" />
+                        <button type="submit" class="btn btn-primary btn-sm w-100">Filtrele</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Ürün Listesi -->
+        <div class="col-lg-9">
+            <div class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-muted">@Model.TotalCount ürün bulundu</span>
+                <div class="d-flex align-items-center gap-2">
+                    <label class="small">Sırala:</label>
+                    <select class="form-select form-select-sm" style="width:auto"
+                            onchange="window.location.href='?' + new URLSearchParams({...Object.fromEntries(new URLSearchParams(window.location.search)), siralama: this.value}).toString()">
+                        <option value="new" selected="@(Model.SortBy == "new" || Model.SortBy == null)">Yeniden Eskiye</option>
+                        <option value="price_asc" selected="@(Model.SortBy == "price_asc")">Fiyat: Düşükten Yükseğe</option>
+                        <option value="price_desc" selected="@(Model.SortBy == "price_desc")">Fiyat: Yüksekten Düşüğe</option>
+                        <option value="rating" selected="@(Model.SortBy == "rating")">En Çok Değerlendirilen</option>
+                    </select>
+                </div>
+            </div>
+
+            @if (!Model.Products.Any())
+            {
+                <div class="text-center py-5">
+                    <i class="bi bi-search display-1 text-muted"></i>
+                    <h4 class="mt-3 text-muted">Ürün bulunamadı</h4>
+                    <p>Filtrelerinizi değiştirmeyi deneyin.</p>
+                    <a asp-action="Index" class="btn btn-primary">Tüm Ürünleri Gör</a>
+                </div>
+            }
+            else
+            {
+                <div class="row g-4">
+                    @foreach (var product in Model.Products)
+                    {
+                        var mainImage = product.MainImageUrl;
+                        <div class="col-6 col-md-4">
+                            <div class="card h-100 product-card border-0 shadow-sm">
+                                <div class="position-relative overflow-hidden">
+                                    <a asp-controller="Product" asp-action="Detail" asp-route-slug="@product.Slug">
+                                        <img src="@mainImage" class="card-img-top product-img" alt="@product.Name"
+                                             onerror="this.src='/images/no-image.png'" />
+                                    </a>
+                                    @if (product.DiscountedPrice.HasValue)
+                                    {
+                                        var pct = (int)((1 - product.DiscountedPrice.Value / product.Price) * 100);
+                                        <span class="badge bg-danger badge-discount">-%@pct</span>
+                                    }
+                                </div>
+                                <div class="card-body d-flex flex-column p-3">
+                                    <small class="text-muted">@product.BrandName</small>
+                                    <a asp-controller="Product" asp-action="Detail" asp-route-slug="@product.Slug"
+                                       class="text-decoration-none text-dark">
+                                        <h6 class="card-title fw-semibold mt-1">@product.Name</h6>
+                                    </a>
+                                    <div class="mt-auto">
+                                        @if (product.DiscountedPrice.HasValue)
+                                        {
+                                            <div>
+                                                <small class="text-muted text-decoration-line-through">@product.Price.ToString("C2")</small>
+                                                <span class="fw-bold text-danger d-block">@product.DiscountedPrice.Value.ToString("C2")</span>
+                                            </div>
+                                        }
+                                        else
+                                        {
+                                            <span class="fw-bold">@product.Price.ToString("C2")</span>
+                                        }
+                                        @if (product.Stock > 0)
+                                        {
+                                            <button class="btn btn-primary btn-sm w-100 mt-2"
+                                                    onclick="addToCart(@product.Id, this)">
+                                                <i class="bi bi-cart-plus me-1"></i>Sepete Ekle
+                                            </button>
+                                        }
+                                        else
+                                        {
+                                            <button class="btn btn-secondary btn-sm w-100 mt-2" disabled>Tükendi</button>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+
+                <div class="mt-4">
+                    @{
+                        ViewBag.CurrentPage = Model.CurrentPage;
+                        ViewBag.TotalPages = Model.TotalPages;
+                        var routeValues = new Dictionary<string, string>();
+                        if (Model.CategoryId.HasValue) routeValues["kategori"] = Model.CategoryId.Value.ToString();
+                        if (Model.BrandId.HasValue) routeValues["marka"] = Model.BrandId.Value.ToString();
+                        if (Model.SortBy != null) routeValues["siralama"] = Model.SortBy;
+                        ViewBag.RouteValues = routeValues;
+                    }
+                    @await Html.PartialAsync("_Pagination")
+                </div>
+            }
+        </div>
+    </div>
+</div>

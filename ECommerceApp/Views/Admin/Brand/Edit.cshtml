@@ -1,0 +1,38 @@
+@model ECommerceApp.Models.Entities.Brand
+@{
+    ViewData["Title"] = "Marka Düzenle";
+    Layout = "_AdminLayout";
+}
+
+<div class="card border-0 shadow-sm">
+    <div class="card-body p-4">
+        <h5 class="fw-bold mb-4">Marka Düzenle</h5>
+        <form asp-action="Edit" asp-route-id="@Model.Id" method="post" enctype="multipart/form-data">
+            @Html.AntiForgeryToken()
+            <div class="row g-3">
+                <div class="col-md-6">
+                    <label asp-for="Name" class="form-label fw-semibold">Marka Adı</label>
+                    <input asp-for="Name" class="form-control" />
+                </div>
+                <div class="col-md-6">
+                    <label class="form-label fw-semibold">Logo Değiştir</label>
+                    @if (!string.IsNullOrEmpty(Model.LogoUrl))
+                    {
+                        <div class="mb-2"><img src="@Model.LogoUrl" style="height:50px;object-fit:contain" /></div>
+                    }
+                    <input type="file" name="logoFile" class="form-control" accept="image/*" />
+                </div>
+                <div class="col-md-4">
+                    <div class="form-check form-switch mt-2">
+                        <input asp-for="IsActive" class="form-check-input" />
+                        <label asp-for="IsActive" class="form-check-label">Aktif</label>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-4">
+                <button type="submit" class="btn btn-primary"><i class="bi bi-save me-2"></i>Güncelle</button>
+                <a asp-action="Index" class="btn btn-outline-secondary ms-2">İptal</a>
+            </div>
+        </form>
+    </div>
+</div>

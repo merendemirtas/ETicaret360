@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="400" height="400" viewBox="0 0 400 400">
+  <rect width="400" height="400" fill="#f1f5f9"/>
+  <rect x="140" y="140" width="120" height="120" rx="12" fill="#e2e8f0"/>
+  <path d="M170 220 L200 185 L230 220 Z" fill="#cbd5e1"/>
+  <circle cx="225" cy="175" r="12" fill="#cbd5e1"/>
+  <text x="200" y="300" text-anchor="middle" font-family="sans-serif" font-size="16" fill="#94a3b8">Resim Yok</text>
+</svg>

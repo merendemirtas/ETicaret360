@@ -1,0 +1,96 @@
+@model ECommerceApp.Models.Entities.Product
+@{
+    var mainImage = Model.Images?.FirstOrDefault(i => i.IsMain)?.ImageUrl
+                 ?? Model.Images?.OrderBy(i => i.DisplayOrder).FirstOrDefault()?.ImageUrl
+                 ?? "/images/no-image.svg";
+    var effectivePrice = Model.DiscountedPrice ?? Model.Price;
+    var hasDiscount = Model.DiscountedPrice.HasValue && Model.DiscountedPrice < Model.Price;
+    var discountPct = hasDiscount ? (int)Math.Round((1 - Model.DiscountedPrice!.Value / Model.Price) * 100) : 0;
+    var avgRating = Model.Reviews?.Any(r => r.IsApproved) == true
+        ? Model.Reviews.Where(r => r.IsApproved).Average(r => r.Rating) : 0;
+    var reviewCount = Model.Reviews?.Count(r => r.IsApproved) ?? 0;
+}
+
+<div class="et-card h-100">
+    <!-- Image -->
+    <a href="/urun/@Model.Slug" style="display:block;text-decoration:none">
+        <div class="et-card-img" style="aspect-ratio:1/1">
+            @if (mainImage == "/images/no-image.png")
+            {
+                <div class="et-no-img w-100 h-100"><i class="bi bi-image"></i></div>
+            }
+            else
+            {
+                <img src="@mainImage" alt="@Model.Name" loading="lazy">
+            }
+        </div>
+    </a>
+
+    @if (hasDiscount)
+    {
+        <span class="et-badge-discount">-%@discountPct</span>
+    }
+    @if (Model.IsFeatured)
+    {
+        <span class="et-badge-featured" style="@(hasDiscount ? "top:2.4rem" : "")">
+            <i class="bi bi-stars me-1"></i>Öne Çıkan
+        </span>
+    }
+
+    @if (User.Identity?.IsAuthenticated == true)
+    {
+        <button class="et-wishlist-btn @(hasDiscount || Model.IsFeatured ? "d-none" : "")"
+                onclick="toggleWishlist(@Model.Id, this)" title="Favorilere Ekle"
+                style="@(hasDiscount ? "top:2.4rem;" : "")">
+            <i class="bi bi-heart"></i>
+        </button>
+    }
+
+    <div class="et-card-body">
+        <div class="et-card-brand">@Model.Brand?.Name</div>
+        <a href="/urun/@Model.Slug" style="text-decoration:none">
+            <div class="et-card-title" title="@Model.Name">@Model.Name</div>
+        </a>
+
+        @if (reviewCount > 0)
+        {
+            <div class="d-flex align-items-center gap-1 mb-2">
+                <div class="et-stars">
+                    @for (int i = 1; i <= 5; i++)
+                    {
+                        @(i <= Math.Round(avgRating) ? "★" : "☆")
+                    }
+                </div>
+                <span style="font-size:.75rem;color:var(--text-muted)">(@reviewCount)</span>
+            </div>
+        }
+
+        <div class="d-flex align-items-center justify-content-between mt-2">
+            <div>
+                <span class="et-price">@effectivePrice.ToString("N0") ₺</span>
+                @if (hasDiscount)
+                {
+                    <span class="et-price-old">@Model.Price.ToString("N0") ₺</span>
+                }
+            </div>
+            @if (Model.Stock <= 0)
+            {
+                <span style="font-size:.75rem;color:var(--danger);font-weight:600">Stok Yok</span>
+            }
+        </div>
+
+        @if (Model.Stock > 0)
+        {
+            <button class="et-add-cart-btn mt-2"
+                    onclick="addToCart(@Model.Id, this)">
+                <i class="bi bi-bag-plus"></i>Sepete Ekle
+            </button>
+        }
+        else
+        {
+            <button class="et-add-cart-btn mt-2" disabled style="opacity:.4;cursor:not-allowed">
+                <i class="bi bi-x-circle"></i>Stokta Yok
+            </button>
+        }
+    </div>
+</div>

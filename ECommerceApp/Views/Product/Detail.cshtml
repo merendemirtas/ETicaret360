@@ -1,0 +1,435 @@
+@model ECommerceApp.Models.ViewModels.ProductDetailViewModel
+@{
+    ViewData["Title"] = Model.Product.Name;
+    var p = Model.Product;
+    var mainImg = p.Images?.FirstOrDefault(i => i.IsMain)?.ImageUrl
+               ?? p.Images?.FirstOrDefault()?.ImageUrl
+               ?? "/images/no-image.svg";
+    var hasDiscount = p.DiscountedPrice.HasValue && p.DiscountedPrice < p.Price;
+    var effectivePrice = p.DiscountedPrice ?? p.Price;
+    var discountPct = hasDiscount ? (int)Math.Round((1 - p.DiscountedPrice!.Value / p.Price) * 100) : 0;
+    var approvedReviews = p.Reviews?.Where(r => r.IsApproved).ToList() ?? new();
+}
+
+<div class="container-fluid px-3 px-lg-4 py-4">
+
+    <!-- Breadcrumb -->
+    <nav class="et-breadcrumb mb-3">
+        <a href="/">Ana Sayfa</a><span>/</span>
+        <a href="/urunler">Ürünler</a><span>/</span>
+        @if (p.Category != null)
+        {
+            <a href="/urunler?kategori=@p.Category.Slug">@p.Category.Name</a><span>/</span>
+        }
+        <span style="color:var(--text)">@p.Name</span>
+    </nav>
+
+    <div class="row g-4">
+        <!-- ── Sol: Görseller ── -->
+        <div class="col-lg-5">
+            <div style="position:sticky;top:calc(var(--nav-height) + 1rem)">
+                <!-- Ana görsel -->
+                <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;aspect-ratio:1/1;display:flex;align-items:center;justify-content:center">
+                    <img id="mainProductImg" src="@mainImg" alt="@p.Name"
+                         onerror="this.src='/images/no-image.svg'"
+                         style="width:100%;height:100%;object-fit:contain;padding:1rem;transition:opacity .2s">
+                </div>
+
+                <!-- Thumbnail'lar -->
+                @if (p.Images?.Count > 1)
+                {
+                    <div class="d-flex gap-2 mt-3 flex-wrap">
+                        @foreach (var img in p.Images.OrderBy(i => i.DisplayOrder))
+                        {
+                            <div class="thumb-wrap @(img.IsMain ? "active" : "")"
+                                 onclick="switchImg('@img.ImageUrl', this)"
+                                 style="width:68px;height:68px;border-radius:10px;overflow:hidden;border:2px solid @(img.IsMain ? "var(--primary)" : "var(--border)");cursor:pointer;background:var(--surface);transition:border-color .2s;flex-shrink:0">
+                                <img src="@img.ImageUrl" alt="" onerror="this.src='/images/no-image.svg'"
+                                     style="width:100%;height:100%;object-fit:cover">
+                            </div>
+                        }
+                    </div>
+                }
+            </div>
+        </div>
+
+        <!-- ── Sağ: Ürün Bilgisi ── -->
+        <div class="col-lg-7">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:2rem">
+
+                <!-- Marka + Badge -->
+                <div class="d-flex align-items-center gap-2 mb-2">
+                    @if (p.Brand != null)
+                    {
+                        <span style="font-size:.8rem;font-weight:700;color:var(--primary);background:var(--primary-muted);padding:.2rem .7rem;border-radius:100px">@p.Brand.Name</span>
+                    }
+                    @if (p.IsFeatured)
+                    {
+                        <span style="font-size:.8rem;font-weight:700;color:#d97706;background:#fef3c7;padding:.2rem .7rem;border-radius:100px"><i class="bi bi-stars me-1"></i>Öne Çıkan</span>
+                    }
+                    @if (hasDiscount)
+                    {
+                        <span style="font-size:.8rem;font-weight:700;color:#dc2626;background:#fee2e2;padding:.2rem .7rem;border-radius:100px">-%@discountPct</span>
+                    }
+                </div>
+
+                <h1 style="font-size:clamp(1.4rem,3vw,2rem);font-weight:800;line-height:1.2;margin-bottom:.75rem">@p.Name</h1>
+
+                <!-- Rating -->
+                @if (approvedReviews.Any())
+                {
+                    var avg = approvedReviews.Average(r => r.Rating);
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                        <div class="et-stars">
+                            @for (int i = 1; i <= 5; i++) { @(i <= Math.Round(avg) ? "★" : "☆") }
+                        </div>
+                        <span style="font-size:.85rem;color:var(--text-muted)">@avg.ToString("F1") / 5 — @approvedReviews.Count yorum</span>
+                    </div>
+                }
+
+                <!-- Fiyat -->
+                <div style="margin:1.25rem 0;padding:1.25rem;background:var(--surface-2);border-radius:var(--radius-sm)">
+                    @if (hasDiscount)
+                    {
+                        <div style="font-size:2rem;font-weight:800;color:var(--primary)">@effectivePrice.ToString("N0") ₺</div>
+                        <div style="font-size:.95rem;color:var(--text-muted);text-decoration:line-through;margin-top:.1rem">
+                            @p.Price.ToString("N0") ₺ <span style="text-decoration:none;color:#dc2626;font-weight:600">%@discountPct indirim</span>
+                        </div>
+                    }
+                    else
+                    {
+                        <div style="font-size:2rem;font-weight:800;color:var(--text)">@effectivePrice.ToString("N0") ₺</div>
+                    }
+                </div>
+
+                <!-- Kısa açıklama -->
+                @if (!string.IsNullOrEmpty(p.ShortDescription))
+                {
+                    <p style="color:var(--text-muted);line-height:1.7;margin-bottom:1.25rem">@p.ShortDescription</p>
+                }
+
+                <!-- Stok durumu -->
+                <div class="mb-3">
+                    @if (p.Stock > 10)
+                    {
+                        <span class="et-status et-status-delivered"><i class="bi bi-check-circle-fill me-1"></i>Stokta Var</span>
+                    }
+                    else if (p.Stock > 0)
+                    {
+                        <span class="et-status et-status-pending"><i class="bi bi-exclamation-circle me-1"></i>Son @p.Stock adet kaldı</span>
+                    }
+                    else
+                    {
+                        <span class="et-status et-status-cancelled"><i class="bi bi-x-circle me-1"></i>Tükendi</span>
+                    }
+                </div>
+
+                @if (p.Stock > 0)
+                {
+                    <!-- Adet + Sepete Ekle -->
+                    <div class="d-flex gap-3 align-items-center mb-3">
+                        <div class="et-qty-ctrl">
+                            <button onclick="changeQty(-1)">−</button>
+                            <span id="qtyDisplay">1</span>
+                            <input type="hidden" id="quantity" value="1">
+                            <button onclick="changeQty(1)">+</button>
+                        </div>
+                        <button class="et-btn et-btn-primary flex-grow-1" style="height:46px"
+                                onclick="addToCartDetail(@p.Id)">
+                            <i class="bi bi-bag-plus me-1"></i>Sepete Ekle
+                        </button>
+                    </div>
+                }
+
+                <!-- Favori + Paylaş -->
+                <div class="d-flex gap-2 mb-4">
+                    @if (User.Identity?.IsAuthenticated == true)
+                    {
+                        <button id="wishlistBtn"
+                                class="et-btn et-btn-outline @(Model.IsInWishlist ? "active" : "")"
+                                style="@(Model.IsInWishlist ? "border-color:#fca5a5;color:#ef4444;background:#fff1f2" : "")"
+                                onclick="toggleWishlistDetail(@p.Id)">
+                            <i class="bi @(Model.IsInWishlist ? "bi-heart-fill" : "bi-heart") me-1"></i>
+                            @(Model.IsInWishlist ? "Favorilerde" : "Favorilere Ekle")
+                        </button>
+                    }
+                    else
+                    {
+                        <a href="/account/login" class="et-btn et-btn-outline">
+                            <i class="bi bi-heart me-1"></i>Favorilere Ekle
+                        </a>
+                    }
+                </div>
+
+                <!-- Kargo bilgisi -->
+                <div style="border-top:1px solid var(--border);padding-top:1.25rem;display:flex;flex-direction:column;gap:.6rem">
+                    <div style="display:flex;align-items:center;gap:.75rem;font-size:.9rem">
+                        <div style="width:32px;height:32px;background:#d1fae5;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                            <i class="bi bi-truck" style="color:#059669"></i>
+                        </div>
+                        <span><strong>Ücretsiz kargo</strong> — 300₺ üzeri siparişlerde</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:.75rem;font-size:.9rem">
+                        <div style="width:32px;height:32px;background:#dbeafe;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                            <i class="bi bi-arrow-return-left" style="color:#2563eb"></i>
+                        </div>
+                        <span><strong>14 gün iade</strong> — Koşulsuz iade garantisi</span>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:.75rem;font-size:.9rem">
+                        <div style="width:32px;height:32px;background:#ede9fe;border-radius:8px;display:flex;align-items:center;justify-content:center;flex-shrink:0">
+                            <i class="bi bi-shield-check" style="color:#7c3aed"></i>
+                        </div>
+                        <span><strong>Güvenli ödeme</strong> — SSL şifreli işlem</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── Açıklama & Yorumlar ── -->
+    <div class="row mt-4">
+        <div class="col-lg-8">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden">
+                <!-- Tabs -->
+                <div style="display:flex;border-bottom:1px solid var(--border)">
+                    <button class="tab-btn active" onclick="switchTab('description', this)"
+                        style="padding:.9rem 1.5rem;font-weight:600;font-size:.9rem;border:none;background:none;border-bottom:2px solid var(--primary);color:var(--primary);cursor:pointer">
+                        Açıklama
+                    </button>
+                    <button class="tab-btn" onclick="switchTab('reviews', this)"
+                        style="padding:.9rem 1.5rem;font-weight:600;font-size:.9rem;border:none;background:none;border-bottom:2px solid transparent;color:var(--text-muted);cursor:pointer">
+                        Yorumlar (@approvedReviews.Count)
+                    </button>
+                </div>
+
+                <!-- Description tab -->
+                <div id="tab-description" class="tab-pane p-4" style="line-height:1.8;color:var(--text)">
+                    @Html.Raw(p.Description ?? "")
+                </div>
+
+                <!-- Reviews tab -->
+                <div id="tab-reviews" class="tab-pane p-4" style="display:none">
+                    @if (approvedReviews.Any())
+                    {
+                        @foreach (var rev in approvedReviews.OrderByDescending(r => r.CreatedAt))
+                        {
+                            <div style="padding:1rem 0;border-bottom:1px solid var(--border)">
+                                <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:.4rem">
+                                    <div>
+                                        <span style="font-weight:700;font-size:.95rem">@(rev.User?.FullName ?? "Kullanıcı")</span>
+                                        <div class="et-stars" style="font-size:.85rem;margin-top:.1rem">
+                                            @for (int i = 1; i <= 5; i++) { @(i <= rev.Rating ? "★" : "☆") }
+                                        </div>
+                                    </div>
+                                    <span style="font-size:.8rem;color:var(--text-muted)">@rev.CreatedAt.ToString("dd MMM yyyy")</span>
+                                </div>
+                                @if (!string.IsNullOrEmpty(rev.Title))
+                                {
+                                    <div style="font-weight:600;font-size:.9rem;margin-bottom:.3rem">@rev.Title</div>
+                                }
+                                <p style="color:var(--text-muted);font-size:.9rem;margin:0;line-height:1.6">@rev.Comment</p>
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        <div style="text-align:center;padding:2rem;color:var(--text-muted)">
+                            <i class="bi bi-chat-square" style="font-size:2rem;display:block;margin-bottom:.75rem"></i>
+                            Henüz yorum yok. İlk yorumu sen yaz!
+                        </div>
+                    }
+
+                    @if (User.Identity?.IsAuthenticated == true && !Model.HasReviewed)
+                    {
+                        <div style="margin-top:1.5rem;padding-top:1.5rem;border-top:1px solid var(--border)">
+                            <h5 style="font-weight:700;margin-bottom:1rem">Yorum Yap</h5>
+                            <form asp-controller="Review" asp-action="Add" method="post">
+                                @Html.AntiForgeryToken()
+                                <input type="hidden" name="productId" value="@p.Id" />
+                                <input type="hidden" name="returnSlug" value="@p.Slug" />
+                                <div class="mb-3">
+                                    <label class="et-label">Puan</label>
+                                    <div style="display:flex;gap:.4rem;margin-top:.4rem">
+                                        @for (int i = 1; i <= 5; i++)
+                                        {
+                                            <label style="cursor:pointer;font-size:1.6rem;color:#d1d5db;transition:color .1s"
+                                                   onmouseover="highlightStars(@i)" onmouseout="resetStars()">
+                                                <input type="radio" name="rating" value="@i" required style="display:none"
+                                                       onchange="selectRating(@i)">
+                                                <i class="bi bi-star-fill star-icon" data-val="@i"></i>
+                                            </label>
+                                        }
+                                    </div>
+                                </div>
+                                <div class="mb-3">
+                                    <input type="text" name="title" class="et-input" placeholder="Yorum başlığı (opsiyonel)" style="height:44px">
+                                </div>
+                                <div class="mb-3">
+                                    <textarea name="comment" rows="4" required
+                                        style="width:100%;border:1.5px solid var(--border);border-radius:var(--radius-sm);padding:.75rem 1rem;font-size:.95rem;resize:vertical;outline:none;transition:border-color .2s"
+                                        placeholder="Ürün hakkında ne düşünüyorsunuz?"></textarea>
+                                </div>
+                                <button type="submit" class="et-btn et-btn-primary" style="height:44px">
+                                    <i class="bi bi-send me-1"></i>Yorum Gönder
+                                </button>
+                            </form>
+                        </div>
+                    }
+                    else if (User.Identity?.IsAuthenticated != true)
+                    {
+                        <div style="margin-top:1.5rem;padding:1rem;background:var(--surface-2);border-radius:var(--radius-sm);text-align:center">
+                            <a href="/account/login" class="et-btn et-btn-primary" style="height:42px">
+                                <i class="bi bi-person me-1"></i>Giriş yap ve yorum yaz
+                            </a>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+
+        <!-- Ürün özellikleri sidebar -->
+        <div class="col-lg-4">
+            <div style="background:var(--surface);border:1px solid var(--border);border-radius:var(--radius);padding:1.5rem">
+                <div style="font-weight:700;font-size:1rem;margin-bottom:1rem;padding-bottom:.75rem;border-bottom:1px solid var(--border)">
+                    Ürün Bilgileri
+                </div>
+                <div style="display:flex;flex-direction:column;gap:.6rem;font-size:.9rem">
+                    <div style="display:flex;justify-content:space-between">
+                        <span style="color:var(--text-muted)">Kategori</span>
+                        <a href="/urunler?kategori=@p.Category?.Slug" style="font-weight:600;color:var(--primary);text-decoration:none">
+                            @(p.Category?.Name ?? "—")
+                        </a>
+                    </div>
+                    <div style="display:flex;justify-content:space-between">
+                        <span style="color:var(--text-muted)">Marka</span>
+                        <span style="font-weight:600">@(p.Brand?.Name ?? "—")</span>
+                    </div>
+                    <div style="display:flex;justify-content:space-between">
+                        <span style="color:var(--text-muted)">Stok</span>
+                        <span style="font-weight:600">@(p.Stock > 0 ? p.Stock + " adet" : "Tükendi")</span>
+                    </div>
+                    <div style="display:flex;justify-content:space-between">
+                        <span style="color:var(--text-muted)">SKU</span>
+                        <span style="font-weight:600;font-size:.8rem;font-family:monospace">#@p.Id.ToString("D5")</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ── İlgili Ürünler ── -->
+    @if (Model.RelatedProducts.Any())
+    {
+        <div class="mt-5">
+            <div class="et-section-header">
+                <div>
+                    <div class="et-section-label"><i class="bi bi-grid me-1"></i>İlgili</div>
+                    <h3 class="et-section-title">Benzer Ürünler</h3>
+                </div>
+                <a href="/urunler?kategori=@p.Category?.Slug" class="et-btn et-btn-outline" style="height:40px">
+                    Tümünü Gör <i class="bi bi-arrow-right ms-1"></i>
+                </a>
+            </div>
+            <div class="row g-3">
+                @foreach (var rel in Model.RelatedProducts)
+                {
+                    <div class="col-6 col-md-3">
+                        @await Html.PartialAsync("_ProductCard", rel)
+                    </div>
+                }
+            </div>
+        </div>
+    }
+
+</div>
+
+@section Scripts {
+<script>
+const maxQty = @p.Stock;
+let selectedRating = 0;
+
+function changeQty(d) {
+    var el = document.getElementById('quantity');
+    var disp = document.getElementById('qtyDisplay');
+    var v = Math.max(1, Math.min(maxQty, parseInt(el.value) + d));
+    el.value = v;
+    disp.textContent = v;
+}
+
+function switchImg(url, el) {
+    document.getElementById('mainProductImg').style.opacity = '.4';
+    setTimeout(() => {
+        document.getElementById('mainProductImg').src = url;
+        document.getElementById('mainProductImg').style.opacity = '1';
+    }, 150);
+    document.querySelectorAll('.thumb-wrap').forEach(t => {
+        t.style.borderColor = 'var(--border)';
+        t.classList.remove('active');
+    });
+    el.style.borderColor = 'var(--primary)';
+}
+
+function addToCartDetail(pid) {
+    var qty = parseInt(document.getElementById('quantity').value);
+    var btn = event.currentTarget;
+    btn.disabled = true;
+    btn.innerHTML = '<i class="bi bi-hourglass-split me-1"></i>Ekleniyor...';
+    $.post('/Cart/Add', { productId: pid, quantity: qty }, function(r) {
+        if (r.success) {
+            toastr.success(r.message);
+            $('#cartBadge').text(r.cartCount).show();
+            btn.innerHTML = '<i class="bi bi-check-lg me-1"></i>Eklendi!';
+            setTimeout(() => { btn.innerHTML = '<i class="bi bi-bag-plus me-1"></i>Sepete Ekle'; btn.disabled = false; }, 2000);
+        } else {
+            toastr.error(r.message);
+            btn.innerHTML = '<i class="bi bi-bag-plus me-1"></i>Sepete Ekle';
+            btn.disabled = false;
+        }
+    }).fail(() => {
+        window.location.href = '/account/login';
+    });
+}
+
+function toggleWishlistDetail(pid) {
+    var btn = document.getElementById('wishlistBtn');
+    $.post('/wishlist/toggle', { productId: pid }, function(r) {
+        if (r.success) {
+            toastr[r.added ? 'success' : 'info'](r.message);
+            if (r.added) {
+                btn.style.borderColor = '#fca5a5';
+                btn.style.color = '#ef4444';
+                btn.style.background = '#fff1f2';
+                btn.innerHTML = '<i class="bi bi-heart-fill me-1"></i>Favorilerde';
+            } else {
+                btn.style.borderColor = ''; btn.style.color = ''; btn.style.background = '';
+                btn.innerHTML = '<i class="bi bi-heart me-1"></i>Favorilere Ekle';
+            }
+        } else {
+            toastr.warning(r.message || 'Giriş yapmanız gerekiyor');
+        }
+    });
+}
+
+function switchTab(name, btn) {
+    document.querySelectorAll('.tab-pane').forEach(t => t.style.display = 'none');
+    document.getElementById('tab-' + name).style.display = 'block';
+    document.querySelectorAll('.tab-btn').forEach(b => {
+        b.style.borderBottomColor = 'transparent';
+        b.style.color = 'var(--text-muted)';
+    });
+    btn.style.borderBottomColor = 'var(--primary)';
+    btn.style.color = 'var(--primary)';
+}
+
+function highlightStars(val) {
+    document.querySelectorAll('.star-icon').forEach((s, i) => {
+        s.parentElement.style.color = i < val ? '#f59e0b' : '#d1d5db';
+    });
+}
+function resetStars() { highlightStars(selectedRating); }
+function selectRating(val) {
+    selectedRating = val;
+    highlightStars(val);
+}
+</script>
+}

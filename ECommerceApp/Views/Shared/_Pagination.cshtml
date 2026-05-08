@@ -1,0 +1,38 @@
+@model dynamic
+@{
+    int currentPage = ViewBag.CurrentPage ?? 1;
+    int totalPages = ViewBag.TotalPages ?? 1;
+    string action = ViewBag.PaginationAction ?? "Index";
+    string controller = ViewBag.PaginationController ?? ViewContext.RouteData.Values["controller"]?.ToString() ?? "Home";
+    var routeValues = ViewBag.RouteValues as Dictionary<string, string> ?? new Dictionary<string, string>();
+}
+@if (totalPages > 1)
+{
+    <nav aria-label="Sayfalama">
+        <ul class="pagination justify-content-center">
+            <li class="page-item @(currentPage <= 1 ? "disabled" : "")">
+                @{
+                    var prevValues = new Dictionary<string, string>(routeValues) { ["sayfa"] = (currentPage - 1).ToString() };
+                }
+                <a class="page-link" asp-controller="@controller" asp-action="@action" asp-all-route-data="@prevValues">
+                    <i class="bi bi-chevron-left"></i>
+                </a>
+            </li>
+            @for (int i = Math.Max(1, currentPage - 2); i <= Math.Min(totalPages, currentPage + 2); i++)
+            {
+                var pageValues = new Dictionary<string, string>(routeValues) { ["sayfa"] = i.ToString() };
+                <li class="page-item @(i == currentPage ? "active" : "")">
+                    <a class="page-link" asp-controller="@controller" asp-action="@action" asp-all-route-data="@pageValues">@i</a>
+                </li>
+            }
+            <li class="page-item @(currentPage >= totalPages ? "disabled" : "")">
+                @{
+                    var nextValues = new Dictionary<string, string>(routeValues) { ["sayfa"] = (currentPage + 1).ToString() };
+                }
+                <a class="page-link" asp-controller="@controller" asp-action="@action" asp-all-route-data="@nextValues">
+                    <i class="bi bi-chevron-right"></i>
+                </a>
+            </li>
+        </ul>
+    </nav>
+}

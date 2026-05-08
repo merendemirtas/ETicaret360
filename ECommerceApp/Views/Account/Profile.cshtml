@@ -1,0 +1,48 @@
+@model ECommerceApp.Models.ViewModels.ProfileViewModel
+@{
+    ViewData["Title"] = "Profilim";
+}
+
+<div class="container my-4">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card border-0 shadow-sm mb-3">
+                <div class="card-body text-center p-4">
+                    <i class="bi bi-person-circle text-primary" style="font-size:4rem"></i>
+                    <h5 class="mt-2 mb-0">@Model.FullName</h5>
+                    <small class="text-muted">@Model.Email</small>
+                </div>
+            </div>
+            <div class="list-group list-group-flush border-0 shadow-sm rounded">
+                <a asp-action="Profile" class="list-group-item list-group-item-action active"><i class="bi bi-person me-2"></i>Profilim</a>
+                <a asp-action="ChangePassword" class="list-group-item list-group-item-action"><i class="bi bi-lock me-2"></i>Şifre Değiştir</a>
+                <a asp-controller="Order" asp-action="MyOrders" class="list-group-item list-group-item-action"><i class="bi bi-bag me-2"></i>Siparişlerim</a>
+                <a asp-controller="Wishlist" asp-action="Index" class="list-group-item list-group-item-action"><i class="bi bi-heart me-2"></i>Favorilerim</a>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <div class="card border-0 shadow-sm">
+                <div class="card-body p-4">
+                    <h4 class="fw-bold mb-4">Profil Bilgileri</h4>
+                    <form asp-action="Profile" method="post">
+                        @Html.AntiForgeryToken()
+                        <div class="mb-3">
+                            <label asp-for="FullName" class="form-label fw-semibold"></label>
+                            <input asp-for="FullName" class="form-control" />
+                            <span asp-validation-for="FullName" class="text-danger small"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="Email" class="form-label fw-semibold"></label>
+                            <input asp-for="Email" class="form-control" readonly />
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="PhoneNumber" class="form-label fw-semibold"></label>
+                            <input asp-for="PhoneNumber" class="form-control" placeholder="+90 5XX XXX XX XX" />
+                        </div>
+                        <button type="submit" class="btn btn-primary">Kaydet</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
