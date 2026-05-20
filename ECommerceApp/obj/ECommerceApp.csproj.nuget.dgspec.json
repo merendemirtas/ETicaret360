@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/eren/Desktop/adsız klasör/ECommerceApp/ECommerceApp.csproj": {}
+    "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj": {}
   },
   "projects": {
-    "/Users/eren/Desktop/adsız klasör/ECommerceApp/ECommerceApp.csproj": {
+    "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/eren/Desktop/adsız klasör/ECommerceApp/ECommerceApp.csproj",
+        "projectUniqueName": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
         "projectName": "ECommerceApp",
-        "projectPath": "/Users/eren/Desktop/adsız klasör/ECommerceApp/ECommerceApp.csproj",
+        "projectPath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
         "packagesPath": "/Users/eren/.nuget/packages/",
-        "outputPath": "/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/",
+        "outputPath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/eren/.nuget/NuGet/NuGet.Config"

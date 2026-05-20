@@ -1,212 +1,148 @@
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/ECommerceApp.csproj.AssemblyReference.cache
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/ECommerceApp.GeneratedMSBuildEditorConfig.editorconfig
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/ECommerceApp.AssemblyInfoInputs.cache
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/ECommerceApp.AssemblyInfo.cs
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/ECommerceApp.csproj.CoreCompileInputs.cache
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/ECommerceApp.MvcApplicationPartsAssemblyInfo.cs
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/ECommerceApp.MvcApplicationPartsAssemblyInfo.cache
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/ECommerceApp.RazorAssemblyInfo.cache
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/ECommerceApp.RazorAssemblyInfo.cs
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/appsettings.Development.json
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/appsettings.json
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ECommerceApp.staticwebassets.runtime.json
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ECommerceApp.staticwebassets.endpoints.json
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ECommerceApp
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ECommerceApp.deps.json
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ECommerceApp.runtimeconfig.json
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ECommerceApp.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ECommerceApp.pdb
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/AutoMapper.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/BouncyCastle.Cryptography.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/FluentValidation.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/FluentValidation.AspNetCore.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/FluentValidation.DependencyInjectionExtensions.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Humanizer.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/MailKit.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.Build.Locator.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.CodeAnalysis.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Design.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Relational.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.DependencyModel.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/MimeKit.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Mono.TextTemplating.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Serilog.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Serilog.AspNetCore.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Serilog.Extensions.Hosting.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Serilog.Extensions.Logging.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Serilog.Formatting.Compact.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Serilog.Settings.Configuration.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Serilog.Sinks.Console.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Serilog.Sinks.Debug.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Serilog.Sinks.File.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/SixLabors.ImageSharp.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Slugify.Core.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/System.CodeDom.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/System.Composition.AttributedModel.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/System.Composition.Convention.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/System.Composition.Hosting.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/System.Composition.Runtime.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/System.Composition.TypedParts.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/scopedcss/bundle/ECommerceApp.styles.css
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/scopedcss/projectbundle/ECommerceApp.bundle.scp.css
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/tb69tuemrr-61n19gt1b8.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/x3l9wj8td4-bqjiyaj88i.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/ua6yvqpdd0-c2jlpeoesf.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/xn49qjjz4u-erw9l3u2r3.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/dnk6xysnbk-aexeepp0ev.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/7ccbk2okf0-d7shbmvgxk.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/houacwyxvz-ausgxo2sd3.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/ufu8g12rdz-k8d9w2qqmf.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/5ylqnr7zcz-cosvhxvwiu.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/v0x4bmb2tv-ub07r2b239.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/vp98boim3v-fvhpjtyr6v.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/ezxygzfrsr-b7pk76d08c.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/gadp505171-fsbi9cje9m.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/0ibwilog2r-rzd6atqjts.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/unlfevdflh-ee0r1s7dh0.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/dwch7p0zyc-dxx9fxp4il.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/topu0n7s6y-jd9uben2k1.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/it12r28ehz-khv3u5hwcm.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/zbowtzq703-r4e9w2rdcm.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/o6xc0z16vl-lcd1t2u6c8.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/wtnjky5qih-c2oey78nd0.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/wck1030n8a-tdbxkamptv.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/0nlkh0qtek-j5mq2jizvt.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/xtzc75fol3-06098lyss8.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/7ih27prpv3-nvvlpmu67g.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/m5zj9xhslg-s35ty4nyc5.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/kz2mcx7rx4-pj5nd1wqec.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/ah7mr8wjcj-46ein0sx1k.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/7wn5suahbu-v0zj4ognzu.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/8j6tu64dkb-37tfw0ft22.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/6mo0eyftsf-hrwsygsryq.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/0173vj5gl8-pk9g2wxc8p.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/oi5gmhh3i9-ft3s53vfgj.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/phgufx4pcy-6cfz1n2cew.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/plb3p1rmrm-6pdc2jztkx.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/je61jcmsam-493y06b0oq.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/dd59aahnv0-iovd86k7lj.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/5jeq2rudi9-vr1egmr9el.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/prqwf8r6dv-kbrnm935zg.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/ba9eqqvn1m-jj8uyg4cgr.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/3cwk78779q-y7v9cxd14o.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/zdw1e1prza-notf2xhcfb.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/5bcv13vwux-h1s4sie4z3.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/79hr89clvd-63fj8s7r0e.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/48dvjww8wv-0j3bgjxly4.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/x50uiupbmz-47otxtyo56.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/rf9n9gnyl6-4v8eqarkd7.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/bmu97tshsg-356vix0kms.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/8bl3ydgbue-83jwlth58m.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/4s9jxcye8d-mrlpezrjn3.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/xpgbyj1we0-lzl9nlhx6b.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/cczadqbx86-ag7o75518u.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/xyuya6bcac-x0q3zqp4vz.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/zkjdi2zznu-0i3buxo5is.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/xab71ja3rl-o1o13a6vjx.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/1k2l8nm7m5-ttgo8qnofa.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/6qfwr7hn7b-2z0ns9nrw6.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/o4wli9qu93-muycvpuwrr.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/pvpo3mcjd4-87fc7y1x7t.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/7x7vuda1ya-mlv21k5csn.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/lmzpmw0986-erlslxuxn9.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/okm1z58vap-erlslxuxn9.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/staticwebassets.build.json
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/staticwebassets.build.json.cache
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/staticwebassets.development.json
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/staticwebassets.build.endpoints.json
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/ECommerc.3D7212AD.Up2Date
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/ECommerceApp.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/refint/ECommerceApp.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/ECommerceApp.pdb
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/ECommerceApp.genruntimeconfig.cache
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/ref/ECommerceApp.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.Caching.Abstractions.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.Caching.Memory.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Npgsql.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/ybceg478rq-uubhgk7j21.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/5aeqthrp0e-9qvawhz9dy.gz
-/Users/eren/Desktop/adsız klasör/ECommerceApp/obj/Debug/net9.0/compressed/cikf87pkmx-z67k1vd3lh.gz
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/appsettings.Development.json
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/appsettings.json
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ECommerceApp.staticwebassets.runtime.json
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ECommerceApp.staticwebassets.endpoints.json
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ECommerceApp
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ECommerceApp.deps.json
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ECommerceApp.runtimeconfig.json
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ECommerceApp.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ECommerceApp.pdb
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/AutoMapper.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/BouncyCastle.Cryptography.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/FluentValidation.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/FluentValidation.AspNetCore.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/FluentValidation.DependencyInjectionExtensions.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Humanizer.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/MailKit.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.Bcl.AsyncInterfaces.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.Build.Locator.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.CodeAnalysis.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.CodeAnalysis.Workspaces.MSBuild.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Abstractions.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Design.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.EntityFrameworkCore.Relational.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.Caching.Abstractions.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.Caching.Memory.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.Configuration.Abstractions.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.DependencyModel.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.Logging.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.Logging.Abstractions.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.Options.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Microsoft.Extensions.Primitives.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/MimeKit.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Mono.TextTemplating.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Npgsql.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Npgsql.EntityFrameworkCore.PostgreSQL.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Serilog.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Serilog.AspNetCore.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Serilog.Extensions.Hosting.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Serilog.Extensions.Logging.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Serilog.Formatting.Compact.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Serilog.Settings.Configuration.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Serilog.Sinks.Console.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Serilog.Sinks.Debug.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Serilog.Sinks.File.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/SixLabors.ImageSharp.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/Slugify.Core.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/System.CodeDom.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/System.Composition.AttributedModel.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/System.Composition.Convention.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/System.Composition.Hosting.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/System.Composition.Runtime.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/System.Composition.TypedParts.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/cs/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/de/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/es/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/fr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/it/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ja/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ko/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/pl/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/pt-BR/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/ru/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/tr/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/zh-Hans/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/bin/Debug/net9.0/zh-Hant/Microsoft.CodeAnalysis.Workspaces.MSBuild.BuildHost.resources.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ECommerceApp.csproj.AssemblyReference.cache
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ECommerceApp.GeneratedMSBuildEditorConfig.editorconfig
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ECommerceApp.AssemblyInfoInputs.cache
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ECommerceApp.AssemblyInfo.cs
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ECommerceApp.csproj.CoreCompileInputs.cache
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ECommerceApp.MvcApplicationPartsAssemblyInfo.cs
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ECommerceApp.MvcApplicationPartsAssemblyInfo.cache
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ECommerceApp.RazorAssemblyInfo.cache
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ECommerceApp.RazorAssemblyInfo.cs
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ECommerceApp.sourcelink.json
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/scopedcss/Views/Shared/_Layout.cshtml.rz.scp.css
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/scopedcss/bundle/ECommerceApp.styles.css
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/scopedcss/projectbundle/ECommerceApp.bundle.scp.css
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/staticwebassets.build.json
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/staticwebassets.build.json.cache
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/staticwebassets.development.json
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/staticwebassets.build.endpoints.json
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ECommerc.3D7212AD.Up2Date
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ECommerceApp.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/refint/ECommerceApp.dll
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ECommerceApp.pdb
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ECommerceApp.genruntimeconfig.cache
+/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/Debug/net9.0/ref/ECommerceApp.dll

@@ -4,6 +4,8 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <ImplicitUsings>enable</ImplicitUsings>
+    <!-- Workaround for SDK 9.0.300 bug: duplicate compressed static asset keys -->
+    <DisableBuildCompression>true</DisableBuildCompression>
   </PropertyGroup>
 
   <ItemGroup>

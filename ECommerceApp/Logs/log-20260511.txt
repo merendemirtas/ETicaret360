@@ -1,0 +1,41 @@
+2026-05-11 15:40:50.373 +03:00 [ERR] Hosting failed to start
+System.IO.IOException: Failed to bind to address http://127.0.0.1:5087: address already in use.
+ ---> Microsoft.AspNetCore.Connections.AddressInUseException: Address already in use
+ ---> System.Net.Sockets.SocketException (48): Address already in use
+   at System.Net.Sockets.Socket.DoBind(EndPoint endPointSnapshot, SocketAddress socketAddress)
+   at System.Net.Sockets.Socket.Bind(EndPoint localEP)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportOptions.CreateDefaultBoundListenSocket(EndPoint endpoint)
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketConnectionListener.Bind()
+   at Microsoft.AspNetCore.Server.Kestrel.Transport.Sockets.SocketTransportFactory.BindAsync(EndPoint endpoint, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.Infrastructure.TransportManager.BindAsync(EndPoint endPoint, ConnectionDelegate connectionDelegate, EndpointConfig endpointConfig, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.<>c__DisplayClass28_0`1.<<StartAsync>g__OnBind|0>d.MoveNext()
+--- End of stack trace from previous location ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   --- End of inner exception stack trace ---
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.BindEndpointAsync(ListenOptions endpoint, AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.LocalhostListenOptions.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.Internal.AddressBinder.AddressesStrategy.BindAsync(AddressBindContext context, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.BindAsync(CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Server.Kestrel.Core.KestrelServerImpl.StartAsync[TContext](IHttpApplication`1 application, CancellationToken cancellationToken)
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
+   at Microsoft.Extensions.Hosting.Internal.Host.<StartAsync>b__14_1(IHostedService service, CancellationToken token)
+   at Microsoft.Extensions.Hosting.Internal.Host.ForeachService[T](IEnumerable`1 services, CancellationToken token, Boolean concurrent, Boolean abortOnFirstException, List`1 exceptions, Func`3 operation)
+2026-05-11 15:41:09.403 +03:00 [INF] HTTP GET / responded 200 in 141.7009 ms
+2026-05-11 15:41:09.413 +03:00 [INF] HTTP GET / responded 200 in 9.3477 ms
+2026-05-11 15:41:10.168 +03:00 [INF] HTTP GET /Image/Get/27 responded 200 in 7.3535 ms
+2026-05-11 15:41:10.170 +03:00 [INF] HTTP GET /Image/Get/28 responded 200 in 9.4438 ms
+2026-05-11 15:41:10.899 +03:00 [INF] HTTP GET /Image/Get/26 responded 200 in 3.0182 ms
+2026-05-11 15:41:10.899 +03:00 [INF] HTTP GET /Image/Get/25 responded 200 in 3.0182 ms
+2026-05-11 15:41:11.073 +03:00 [INF] HTTP GET /Image/Get/24 responded 200 in 3.2974 ms
+2026-05-11 15:41:18.206 +03:00 [INF] HTTP GET /account/login responded 200 in 13.8208 ms
+2026-05-11 15:41:27.464 +03:00 [INF] HTTP POST /admin/Account/Login responded 200 in 17.6139 ms
+2026-05-11 15:41:38.276 +03:00 [INF] HTTP GET /admin/Account/Register responded 200 in 34.4899 ms
+2026-05-11 15:48:46.670 +03:00 [INF] HTTP GET /account/login responded 200 in 13.8317 ms
+2026-05-11 21:53:25.320 +03:00 [INF] HTTP GET /admin/urunler responded 302 in 4.0537 ms
+2026-05-11 21:53:25.340 +03:00 [INF] HTTP GET /Account/Login responded 200 in 14.2082 ms
+2026-05-11 21:53:25.370 +03:00 [INF] HTTP GET /apple-touch-icon.png responded 404 in 0.6802 ms
+2026-05-11 21:53:25.370 +03:00 [INF] HTTP GET /apple-touch-icon-precomposed.png responded 404 in 0.6805 ms
+2026-05-11 21:53:25.373 +03:00 [INF] HTTP GET /Home/Error/404 responded 404 in 3.0835 ms
+2026-05-11 21:53:25.378 +03:00 [INF] HTTP GET /Home/Error/404 responded 404 in 7.8807 ms
