@@ -31,49 +31,11 @@
                         <i class="bi bi-tag me-1"></i>İndirimler
                     </a>
                 </div>
-                <div class="d-flex gap-4 mt-4 pt-2" style="border-top:1px solid rgba(99,102,241,.15)">
-                    <div>
-                        <div style="font-size:1.4rem;font-weight:800;color:var(--primary)">10K+</div>
-                        <div style="font-size:.8rem;color:var(--text-muted)">Ürün</div>
-                    </div>
-                    <div>
-                        <div style="font-size:1.4rem;font-weight:800;color:var(--primary)">500+</div>
-                        <div style="font-size:.8rem;color:var(--text-muted)">Marka</div>
-                    </div>
-                    <div>
-                        <div style="font-size:1.4rem;font-weight:800;color:var(--primary)">50K+</div>
-                        <div style="font-size:.8rem;color:var(--text-muted)">Mutlu Müşteri</div>
-                    </div>
-                </div>
             </div>
-            <div class="col-lg-6 d-none d-lg-flex justify-content-end align-items-center pe-3">
-                <div style="position:relative;width:420px;height:320px">
-                    <div style="position:absolute;top:0;right:0;width:280px;height:280px;background:rgba(99,102,241,.1);border-radius:50%"></div>
-                    <div style="position:absolute;bottom:0;left:0;width:180px;height:180px;background:rgba(245,158,11,.1);border-radius:50%"></div>
-                    <div style="position:relative;z-index:1;display:grid;grid-template-columns:1fr 1fr;gap:1rem;padding:1rem">
-                        @if (Model?.FeaturedProducts?.Any() == true)
-                        {
-                            @foreach (var p in Model.FeaturedProducts.Take(4))
-                            {
-                                var img = p.Images?.FirstOrDefault(i => i.IsMain)?.ImageUrl ?? "/images/no-image.png";
-                                <div style="background:#fff;border-radius:16px;padding:.75rem;box-shadow:0 4px 16px rgba(0,0,0,.08);text-align:center">
-                                    <img src="@img" alt="@p.Name" style="width:80px;height:80px;object-fit:cover;border-radius:10px">
-                                    <div style="font-size:.75rem;font-weight:600;margin-top:.5rem;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">@p.Name</div>
-                                    <div style="font-size:.8rem;color:var(--primary);font-weight:700">@((p.DiscountedPrice ?? p.Price).ToString("N0")) ₺</div>
-                                </div>
-                            }
-                        }
-                        else
-                        {
-                            for (int i = 0; i < 4; i++)
-                            {
-                                <div style="background:#fff;border-radius:16px;padding:.75rem;box-shadow:0 4px 16px rgba(0,0,0,.08);display:flex;align-items:center;justify-content:center;height:110px">
-                                    <i class="bi bi-box-seam" style="font-size:2rem;color:var(--primary-muted)"></i>
-                                </div>
-                            }
-                        }
-                    </div>
-                </div>
+            <div class="col-lg-6 d-flex justify-content-center align-items-center mt-4 mt-lg-0">
+                <img src="~/images/ETicaret365_logo.svg" alt="ETicaret365"
+                     class="w-100 h-auto mx-auto d-block"
+                     style="max-width:min(100%, 560px);object-fit:contain" />
             </div>
         </div>
     </div>

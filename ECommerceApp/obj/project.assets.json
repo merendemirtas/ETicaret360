@@ -4185,11 +4185,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
+      "projectUniqueName": "/Users/eren/Desktop/projects/ETicaret365/ECommerceApp/ECommerceApp.csproj",
       "projectName": "ECommerceApp",
-      "projectPath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
+      "projectPath": "/Users/eren/Desktop/projects/ETicaret365/ECommerceApp/ECommerceApp.csproj",
       "packagesPath": "/Users/eren/.nuget/packages/",
-      "outputPath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/obj/",
+      "outputPath": "/Users/eren/Desktop/projects/ETicaret365/ECommerceApp/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/eren/.nuget/NuGet/NuGet.Config"

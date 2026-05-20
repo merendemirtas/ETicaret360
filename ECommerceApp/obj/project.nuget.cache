@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "7N+XVk0qArA=",
+  "dgSpecHash": "TzgycmmD9/U=",
   "success": true,
-  "projectFilePath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
+  "projectFilePath": "/Users/eren/Desktop/projects/ETicaret365/ECommerceApp/ECommerceApp.csproj",
   "expectedPackageFiles": [
     "/Users/eren/.nuget/packages/automapper/13.0.1/automapper.13.0.1.nupkg.sha512",
     "/Users/eren/.nuget/packages/bouncycastle.cryptography/2.4.0/bouncycastle.cryptography.2.4.0.nupkg.sha512",
@@ -84,9 +84,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "'AutoMapper' 13.0.1 paketinde önem derecesi yüksek olan bilinen bir https://github.com/advisories/GHSA-rvv3-g6hj-g44x güvenlik açığı var",
-      "projectPath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
+      "projectPath": "/Users/eren/Desktop/projects/ETicaret365/ECommerceApp/ECommerceApp.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
+      "filePath": "/Users/eren/Desktop/projects/ETicaret365/ECommerceApp/ECommerceApp.csproj",
       "libraryId": "AutoMapper",
       "targetGraphs": [
         "net9.0"
@@ -96,9 +96,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "'MailKit' 4.7.1 paketinde önem derecesi orta olan bilinen bir https://github.com/advisories/GHSA-9j88-vvj5-vhgr güvenlik açığı var",
-      "projectPath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
+      "projectPath": "/Users/eren/Desktop/projects/ETicaret365/ECommerceApp/ECommerceApp.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
+      "filePath": "/Users/eren/Desktop/projects/ETicaret365/ECommerceApp/ECommerceApp.csproj",
       "libraryId": "MailKit",
       "targetGraphs": [
         "net9.0"
@@ -108,9 +108,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "'MimeKit' 4.7.1 paketinde önem derecesi orta olan bilinen bir https://github.com/advisories/GHSA-g7hc-96xr-gvvx güvenlik açığı var",
-      "projectPath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
+      "projectPath": "/Users/eren/Desktop/projects/ETicaret365/ECommerceApp/ECommerceApp.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
+      "filePath": "/Users/eren/Desktop/projects/ETicaret365/ECommerceApp/ECommerceApp.csproj",
       "libraryId": "MimeKit",
       "targetGraphs": [
         "net9.0"
@@ -120,9 +120,9 @@
       "code": "NU1903",
       "level": "Warning",
       "message": "'SixLabors.ImageSharp' 3.1.5 paketinde önem derecesi yüksek olan bilinen bir https://github.com/advisories/GHSA-2cmq-823j-5qj8 güvenlik açığı var",
-      "projectPath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
+      "projectPath": "/Users/eren/Desktop/projects/ETicaret365/ECommerceApp/ECommerceApp.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
+      "filePath": "/Users/eren/Desktop/projects/ETicaret365/ECommerceApp/ECommerceApp.csproj",
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
         "net9.0"
@@ -132,9 +132,9 @@
       "code": "NU1902",
       "level": "Warning",
       "message": "'SixLabors.ImageSharp' 3.1.5 paketinde önem derecesi orta olan bilinen bir https://github.com/advisories/GHSA-rxmq-m78w-7wmc güvenlik açığı var",
-      "projectPath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
+      "projectPath": "/Users/eren/Desktop/projects/ETicaret365/ECommerceApp/ECommerceApp.csproj",
       "warningLevel": 1,
-      "filePath": "/Users/eren/Desktop/ETicaret365/ECommerceApp/ECommerceApp.csproj",
+      "filePath": "/Users/eren/Desktop/projects/ETicaret365/ECommerceApp/ECommerceApp.csproj",
       "libraryId": "SixLabors.ImageSharp",
       "targetGraphs": [
         "net9.0"

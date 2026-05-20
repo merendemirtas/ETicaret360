@@ -1,0 +1,12 @@
+2026-05-20 16:19:41.257 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-05-20 16:19:41.429 +03:00 [INF] HTTP GET / responded 200 in 149.7192 ms
+2026-05-20 16:19:41.436 +03:00 [INF] HTTP GET / responded 200 in 18.3480 ms
+2026-05-20 16:19:41.914 +03:00 [INF] HTTP GET /Image/Get/28 responded 200 in 16.4331 ms
+2026-05-20 16:19:41.918 +03:00 [INF] HTTP GET /Image/Get/26 responded 200 in 2.6518 ms
+2026-05-20 16:19:41.919 +03:00 [INF] HTTP GET /Image/Get/27 responded 200 in 21.5938 ms
+2026-05-20 16:19:41.920 +03:00 [INF] HTTP GET /Image/Get/25 responded 200 in 1.7009 ms
+2026-05-20 16:19:43.209 +03:00 [INF] HTTP GET /Image/Get/24 responded 200 in 6.2530 ms
+2026-05-20 16:19:54.323 +03:00 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'.
+2026-05-20 16:19:54.383 +03:00 [INF] HTTP GET /urunler responded 200 in 104.0860 ms
+2026-05-20 16:30:40.267 +03:00 [WRN] Failed to determine the https port for redirect.
+2026-05-20 16:30:40.428 +03:00 [INF] HTTP GET / responded 200 in 136.6518 ms
