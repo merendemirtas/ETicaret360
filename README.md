@@ -212,4 +212,7 @@ Serilog ile yapılandırılmış; iki sink aktif:
 
 <img width="1710" height="1112" alt="Ekran Resmi 2026-05-09 22 43 13" src="https://github.com/user-attachments/assets/dbbb5774-8354-4a3b-bf4d-6a663527ab8e" />
 
+<img width="1709" height="990" alt="Ekran Resmi 2026-05-20 16 40 14" src="https://github.com/user-attachments/assets/c583487b-4cd8-4c6c-a15b-be58f68353a2" />
+
 <img width="1710" height="1112" alt="Ekran Resmi 2026-05-09 22 43 39" src="https://github.com/user-attachments/assets/abbfcc10-a701-44a3-b563-fc99139c17c2" />
+
